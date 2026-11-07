@@ -39,8 +39,12 @@ function page_end()
     ?>
 </main>
 <footer class="footer">
-    <p>Graphics: Vandalhart · Leaderboards: jebeebus · Data updated <?= h($updated) ?></p>
-    <p><a href="<?= h(SHEET_URL) ?>" target="_blank" rel="noopener">FFRecordKeeper Discord: Community Leaderboards</a></p>
+    <p>Graphics: Vandalhart · Leaderboards: jebeebus · Website: zor · Data updated <?= h($updated) ?></p>
+    <p>
+        <a href="<?= h(SHEET_URL) ?>" target="_blank" rel="noopener">FFRecordKeeper Discord: Community Leaderboards</a>
+        ·
+        <a href="<?= h(DATABASE_URL) ?>" target="_blank" rel="noopener">FFRK Community Database</a>
+    </p>
 </footer>
 </body>
 </html>

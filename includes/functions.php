@@ -2,6 +2,7 @@
 
 const DATA_DIR = __DIR__ . '/../data';
 const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1VSt7_IySH7PxEQNa7h9AYlLtqpO135i1UScY3bR6kzM/edit';
+const DATABASE_URL = 'https://docs.google.com/spreadsheets/d/1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk/edit?gid=938172420#gid=938172420';
 const RECENT_RECORDS = 30;
 const MEDALS = [1 => 'Gold', 2 => 'Silver', 3 => 'Bronze'];
 const MEDAL_POINTS = [1 => 3, 2 => 2, 3 => 1];
