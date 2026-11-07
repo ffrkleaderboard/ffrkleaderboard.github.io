@@ -9,8 +9,8 @@ function render_home_page($site, $hardMode)
     <img class="site-banner" src="assets/images/ffrk_cast_banner.webp" alt="" width="1600" height="400">
     <h1>FFRK Community Leaderboards</h1>
     <p>FFRecordKeeper Discord</p>
-    <p>Thanks to the collaboration of our Community, we have <?= array_sum(array_map('count', $site['records'])) ?> records submitted!</p>
-    <p>Good luck and keep it going Keepers!</p>
+    <p>Thanks to the collaboration of our Keepers we have received <?= array_sum(array_map('count', $site['records'])) ?> submissions!</p>
+    <p>Good luck and keep it going!</p>
 </header>
 <input class="mode-input" type="radio" name="mode" id="mode-normal"<?= $hardMode ? '' : ' checked' ?>>
 <input class="mode-input" type="radio" name="mode" id="mode-hard"<?= $hardMode ? ' checked' : '' ?>>
