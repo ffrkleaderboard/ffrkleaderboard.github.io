@@ -2,6 +2,9 @@
 
 const DATA_DIR = __DIR__ . '/../data';
 const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1VSt7_IySH7PxEQNa7h9AYlLtqpO135i1UScY3bR6kzM/edit';
+const RECENT_RECORDS = 30;
+const MEDALS = [1 => 'Gold', 2 => 'Silver', 3 => 'Bronze'];
+const RECORD_STATUS = ['new' => 'New Record!', 'updated' => 'Updated Record'];
 
 function h($value)
 {
@@ -28,6 +31,12 @@ function block_key($row)
     return $row['cd'] . '|' . $row['boss'] . '|' . $row['variant'];
 }
 
+/** Identifies a submission without its keeper, whose name moderators may correct. */
+function change_key($block, $submittedOn)
+{
+    return block_key($block) . '|' . $submittedOn;
+}
+
 /** Loads every CSV into lookups keyed the way the pages need them. */
 function load_site()
 {
@@ -38,6 +47,7 @@ function load_site()
         'characters' => [],
         'badges' => [],
         'icons' => [],
+        'changes' => [],
     ];
     foreach (read_csv('fights.csv') as $fight) {
         $site['fights'][$fight['sheet']] = $fight;
@@ -47,6 +57,9 @@ function load_site()
     }
     foreach (read_csv('records.csv') as $record) {
         $site['records'][block_key($record)][] = $record;
+    }
+    foreach (read_csv('record_changes.csv') as $change) {
+        $site['changes'][change_key($change, $change['submitted_on'])] = $change['status'];
     }
     foreach (read_csv('characters.csv') as $character) {
         $site['characters'][$character['code']] = $character;
@@ -77,6 +90,11 @@ function home_url($hardMode)
 function fight_url($sheet, $position = null)
 {
     return $sheet . ($position === null ? '' : '-' . $position) . '.html';
+}
+
+function recent_url()
+{
+    return 'recent.html';
 }
 
 /** Short name of a block within its fight: its element, realm or job. */
@@ -159,6 +177,29 @@ function keeper_entries($site, $username)
         }
     }
     return $entries;
+}
+
+/**
+ * The latest submissions across all fights, newest first. Undated ones are left out.
+ * Status is empty for a submission that data/record_changes.csv doesn't cover.
+ */
+function recent_entries($site)
+{
+    $entries = [];
+    foreach ($site['blocks'] as $sheet => $blocks) {
+        foreach ($blocks as $block) {
+            foreach (build_ranking($site, $site['records'][block_key($block)] ?? []) as $entry) {
+                if ($entry['submitted_on'] !== '') {
+                    $status = $site['changes'][change_key($block, $entry['submitted_on'])] ?? '';
+                    $entries[] = $entry + ['sheet' => $sheet, 'block' => $block, 'status' => $status];
+                }
+            }
+        }
+    }
+    usort($entries, function ($a, $b) {
+        return strcmp($b['submitted_on'], $a['submitted_on']);
+    });
+    return array_slice($entries, 0, RECENT_RECORDS);
 }
 
 function is_hard_mode($sheet)
@@ -245,10 +286,21 @@ function build_ranking($site, $records)
             'team' => $team,
             'video' => preg_match('#^https?://#i', $record['video']) ? $record['video'] : '',
             'date' => $date === '' ? '' : substr($date, 5, 2) . '/' . substr($date, 2, 2),
+            'submitted_on' => $date,
             'badges' => $site['badges'][$record['username']] ?? [],
         ];
     }
     return $ranking;
+}
+
+function format_seconds($seconds)
+{
+    return number_format($seconds, 2, '.', '') . 's';
+}
+
+function average_seconds($ranking)
+{
+    return array_sum(array_column($ranking, 'seconds')) / count($ranking);
 }
 
 /** Share of teams using each character. A team counts a character only once. */

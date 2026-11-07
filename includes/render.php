@@ -47,6 +47,57 @@ function page_end()
     <?php
 }
 
+/** A tab of the dropdown, unfolding into its fights. Opening one closes the others. */
+function render_sidebar_fight($site, $sheet)
+{
+    ?>
+    <li>
+        <details name="sidebar-fight">
+            <summary><?= h($sheet) ?></summary>
+            <ul class="sidebar-blocks">
+                <li><a href="<?= h(fight_url($sheet)) ?>">All <?= h($sheet) ?></a></li>
+                <?php foreach (open_blocks($site, $sheet) as $block): ?>
+                    <li><a href="<?= h(fight_url($sheet, $block['position'])) ?>"><?= h(block_name($block)) ?></a></li>
+                <?php endforeach; ?>
+            </ul>
+        </details>
+    </li>
+    <?php
+}
+
+/** Dropdown of the home page: keeper search, recent records and every fight. */
+function render_sidebar($site)
+{
+    $keepers = [];
+    foreach (keeper_names($site) as $username) {
+        $keepers[] = ['name' => $username, 'url' => keeper_url($username)];
+    }
+    usort($keepers, function ($a, $b) {
+        return strcasecmp($a['name'], $b['name']);
+    });
+    ?>
+<details class="sidebar">
+    <summary>☰ Menu</summary>
+    <div class="sidebar-panel">
+        <input class="keeper-search" id="keeper-search" type="search" placeholder="Search keeper" aria-label="Search keeper" autocomplete="off" spellcheck="false">
+        <ul class="keeper-results" id="keeper-results" hidden></ul>
+        <a class="sidebar-button" href="<?= h(recent_url()) ?>">Recent Records</a>
+        <?php foreach (home_sections($site) as $title => $sheets): ?>
+            <p class="sidebar-heading"><?= h($title) ?></p>
+            <ul class="sidebar-fights">
+                <?php foreach ($sheets as $sheet): ?>
+                    <?php render_sidebar_fight($site, $sheet); ?>
+                    <?php render_sidebar_fight($site, $sheet . '-HM'); ?>
+                <?php endforeach; ?>
+            </ul>
+        <?php endforeach; ?>
+    </div>
+</details>
+<script type="application/json" id="keeper-index"><?= json_encode($keepers, JSON_HEX_TAG | JSON_UNESCAPED_UNICODE) ?></script>
+<script src="assets/sidebar.js" defer></script>
+    <?php
+}
+
 function render_fight_card($site, $sheet, $banner, $modeClass)
 {
     ?>
@@ -142,6 +193,18 @@ function render_team($team)
     }
 }
 
+function render_podiums($site, $entries)
+{
+    $counts = array_count_values(array_column($entries, 'rank'));
+    ?>
+    <ul class="podiums" aria-label="Podiums">
+        <?php foreach (MEDALS as $rank => $name): ?>
+            <li><?= render_rank($site, $rank) ?><strong><?= $counts[$rank] ?? 0 ?></strong> <?= h($name) ?></li>
+        <?php endforeach; ?>
+    </ul>
+    <?php
+}
+
 function render_keeper_entries($site, $entries)
 {
     ?>
@@ -165,9 +228,53 @@ function render_keeper_entries($site, $entries)
                         <a href="<?= h($entry['video']) ?>" target="_blank" rel="noopener"><?php render_video_badge($site); ?></a>
                     <?php endif; ?>
                 </td>
-                <td class="time"><?= number_format($entry['seconds'], 2, '.', '') ?>s</td>
+                <td class="time"><?= format_seconds($entry['seconds']) ?></td>
                 <td class="team"><?php render_team($entry['team']); ?></td>
                 <td class="date"><?= $entry['date'] === '' ? '' : '⏴' . h($entry['date']) ?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+    <?php
+}
+
+function render_recent_entries($site, $entries)
+{
+    ?>
+    <table class="ranking keeper-records recent-records">
+        <thead>
+            <tr>
+                <th scope="col">SUBMITTED (UTC)</th>
+                <th scope="col" class="name">RECORD KEEPER</th>
+                <th scope="col" class="name">FIGHT</th>
+                <th scope="col">STATUS</th>
+                <th scope="col">RANK</th>
+                <th scope="col">TIME</th>
+                <th scope="col">TEAM</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($entries as $entry): ?>
+            <tr<?= $entry['rank'] <= 3 ? ' class="top"' : '' ?> style="background:<?= h($entry['block']['row_odd']) ?>">
+                <td class="submitted"><?= h(substr($entry['submitted_on'], 0, 10)) ?> <?= h(substr($entry['submitted_on'], 12, 5)) ?></td>
+                <td class="name">
+                    <a href="<?= h(keeper_url($entry['username'])) ?>"><?= h($entry['username']) ?></a>
+                    <?php render_badges($site, $entry['badges']); ?>
+                </td>
+                <td class="name fight">
+                    <a href="<?= h(fight_url($entry['sheet'], $entry['block']['position'])) ?>"><?= h(block_full_name($entry['block'])) ?></a>
+                    <?php if ($entry['video'] !== ''): ?>
+                        <a href="<?= h($entry['video']) ?>" target="_blank" rel="noopener"><?php render_video_badge($site); ?></a>
+                    <?php endif; ?>
+                </td>
+                <td class="status">
+                    <?php if ($entry['status'] !== ''): ?>
+                        <span class="status-<?= h($entry['status']) ?>"><?= h(RECORD_STATUS[$entry['status']]) ?></span>
+                    <?php endif; ?>
+                </td>
+                <td class="rank"><?= render_rank($site, $entry['rank']) ?></td>
+                <td class="time"><?= format_seconds($entry['seconds']) ?></td>
+                <td class="team"><?php render_team($entry['team']); ?></td>
             </tr>
         <?php endforeach; ?>
         </tbody>
@@ -207,12 +314,20 @@ function render_ranking($site, $block, $ranking)
                         <?php render_video_badge($site); ?>
                     <?php endif; ?>
                 </td>
-                <td class="time"><?= number_format($entry['seconds'], 2, '.', '') ?>s</td>
+                <td class="time"><?= format_seconds($entry['seconds']) ?></td>
                 <td class="team"><?php render_team($entry['team']); ?></td>
                 <?php if ($hasDate): ?><td class="date"><?= $entry['date'] === '' ? '' : '⏴' . h($entry['date']) ?></td><?php endif; ?>
             </tr>
         <?php endforeach; ?>
         </tbody>
+        <tfoot>
+            <tr>
+                <th scope="row" colspan="2" class="name">AVERAGE</th>
+                <td class="time"><?= format_seconds(average_seconds($ranking)) ?></td>
+                <td></td>
+                <?php if ($hasDate): ?><td class="date"></td><?php endif; ?>
+            </tr>
+        </tfoot>
     </table>
     <?php
 }

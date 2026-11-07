@@ -3,6 +3,7 @@
 function render_home_page($site, $hardMode)
 {
     page_start('FFRK Community Leaderboards', $site);
+    render_sidebar($site);
     ?>
 <div class="home">
 <header class="hero">
@@ -91,8 +92,24 @@ function render_keeper_page($site, $username)
     <header class="fight-head">
         <h1><?= h($username) ?> <?php render_badges($site, $entries[0]['badges']); ?></h1>
         <p><?= count($entries) ?> records</p>
+        <?php render_podiums($site, $entries); ?>
     </header>
     <?php render_keeper_entries($site, $entries); ?>
+</div>
+    <?php
+    page_end();
+}
+
+function render_recent_page($site)
+{
+    page_start('Recent Records · FFRK Community Leaderboards', $site, '');
+    ?>
+<div class="recent-page">
+    <header class="fight-head">
+        <h1>Recent Records</h1>
+        <p>The last <?= RECENT_RECORDS ?> submitted records</p>
+    </header>
+    <?php render_recent_entries($site, recent_entries($site)); ?>
 </div>
     <?php
     page_end();

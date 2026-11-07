@@ -3,8 +3,10 @@
 Static site that shows the leaderboards from the
 [FFRecordKeeper Discord sheet](https://docs.google.com/spreadsheets/d/1VSt7_IySH7PxEQNa7h9AYlLtqpO135i1UScY3bR6kzM/edit):
 a home page with clickable fight banners in three sections (Elemental, Realm and
-Job) and a Normal/Hard Mode toggle, and a page per fight with times, teams and
-character usage rates. PHP generates the pages; the published site is plain HTML.
+Job), a Normal/Hard Mode toggle and a dropdown with keeper search and fight links;
+a page per fight with times, teams and character usage rates; a page per keeper; and
+a page with the latest submissions. PHP generates the pages; the published site is
+plain HTML, plus one small script for the keeper search.
 
 ## How it updates
 
@@ -41,7 +43,10 @@ python tools/build_data.py
 - `includes/functions.php`: loads the CSVs, builds rankings and usage rates
 - `includes/render.php`: HTML for the shared parts of a page
 - `includes/pages.php`: HTML for each kind of page
-- `data/`: generated CSVs (`records.csv` is the sheet's RawData tab)
+- `assets/sidebar.js`: keeper search of the home dropdown
+- `data/`: generated CSVs (`records.csv` is the sheet's RawData tab;
+  `record_changes.csv` logs each submission as new or updated, which the sheet
+  doesn't keep, so it is added to rather than regenerated)
 - `tools/build_data.py`: regenerates `data/` and `assets/banners/` from the sheet
 - `tools/build_site.php`: generates the pages in `dist/`
 - `.github/workflows/update-site.yml`: the scheduled update

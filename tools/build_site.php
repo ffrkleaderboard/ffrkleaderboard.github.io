@@ -61,8 +61,9 @@ copy_tree(__DIR__ . '/../assets', DIST_DIR . '/assets');
 write_page(home_url(false), 'render_home_page', $site, false);
 write_page(home_url(true), 'render_home_page', $site, true);
 write_page('404.html', 'render_not_found_page', $site);
+write_page(recent_url(), 'render_recent_page', $site);
 
-$pages = 3;
+$pages = 4;
 foreach (array_keys($site['fights']) as $sheet) {
     write_page(fight_url($sheet), 'render_gallery_page', $site, $sheet);
     $pages++;

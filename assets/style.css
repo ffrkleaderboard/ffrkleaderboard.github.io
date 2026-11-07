@@ -469,6 +469,16 @@ td {
     vertical-align: middle;
 }
 
+tfoot tr {
+    background: var(--head);
+    color: var(--head-text);
+    font-weight: 700;
+}
+
+tfoot th {
+    padding: 5px 4px;
+}
+
 .ranking .name {
     text-align: left;
     overflow-wrap: anywhere;
@@ -752,6 +762,278 @@ td.date {
 .keeper-page {
     max-width: 900px;
     margin: 0 auto;
+}
+
+.podiums {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+    margin: 12px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.podiums li {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.podiums .medal {
+    margin: 0;
+}
+
+/* Recent records */
+
+.recent-page {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.submitted {
+    color: #555;
+    font-size: 0.68rem;
+    text-align: center;
+}
+
+.status {
+    text-align: center;
+    white-space: nowrap;
+}
+
+.status span {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 700;
+}
+
+.status-new {
+    background: #0b6b2e;
+}
+
+.status-updated {
+    background: #1155cc;
+}
+
+/* Six columns don't fit a phone: each record becomes a small card. */
+
+@media (max-width: 700px) {
+    .recent-records,
+    .recent-records tbody {
+        display: block;
+    }
+
+    .recent-records thead {
+        display: none;
+    }
+
+    .recent-records tr {
+        display: grid;
+        grid-template-areas:
+            "rank keeper time"
+            "rank fight fight"
+            "rank status team"
+            "rank submitted team";
+        grid-template-columns: 40px minmax(0, 1fr) auto;
+        gap: 2px 6px;
+        align-items: center;
+        padding: 4px 2px;
+    }
+
+    .recent-records td {
+        width: auto;
+        padding: 0;
+    }
+
+    .recent-records .rank {
+        grid-area: rank;
+    }
+
+    .recent-records .name {
+        grid-area: keeper;
+    }
+
+    .recent-records .fight {
+        grid-area: fight;
+    }
+
+    .recent-records .time {
+        grid-area: time;
+    }
+
+    .recent-records .submitted {
+        grid-area: submitted;
+        text-align: left;
+    }
+
+    .recent-records .status {
+        grid-area: status;
+        text-align: left;
+    }
+
+    .recent-records .team {
+        grid-area: team;
+    }
+}
+
+/* Home dropdown, laid over the page so that the home still fits one screen. */
+
+.sidebar {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 3;
+    width: 260px;
+}
+
+.sidebar > summary {
+    width: fit-content;
+    padding: 6px 14px;
+    border: 2px solid var(--panel-border);
+    border-radius: 8px;
+    background: var(--panel);
+    font-size: 0.85rem;
+    font-weight: 700;
+    list-style: none;
+    cursor: pointer;
+}
+
+.sidebar summary::-webkit-details-marker {
+    display: none;
+}
+
+.sidebar > summary:hover,
+.sidebar[open] > summary {
+    background: var(--panel-hover);
+}
+
+.sidebar-panel {
+    margin-top: 6px;
+    padding: 10px;
+    border: 2px solid var(--panel-border);
+    border-radius: 8px;
+    background: var(--panel);
+}
+
+.keeper-search {
+    width: 100%;
+    padding: 7px 8px;
+    border: 1px solid var(--panel-border);
+    border-radius: 4px;
+    background: var(--page);
+    color: var(--text);
+    font: inherit;
+    font-size: 0.85rem;
+}
+
+.keeper-results,
+.sidebar-fights,
+.sidebar-blocks {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.keeper-results {
+    margin-top: 4px;
+    font-size: 0.85rem;
+}
+
+.keeper-results a,
+.keeper-results .keeper-none {
+    display: block;
+    padding: 5px 8px;
+    border-radius: 4px;
+    overflow-wrap: anywhere;
+    text-decoration: none;
+}
+
+.keeper-results .keeper-none {
+    color: var(--muted);
+}
+
+.sidebar-button {
+    display: block;
+    margin-top: 10px;
+    padding: 7px 8px;
+    border: 1px solid var(--panel-border);
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+}
+
+.sidebar-heading {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.sidebar-fights {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2px;
+    margin-top: 4px;
+}
+
+.sidebar-fights li:has(> details[open]) {
+    grid-column: 1 / -1;
+}
+
+.sidebar-fights summary {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    list-style: none;
+    cursor: pointer;
+}
+
+.sidebar-fights summary::after {
+    content: " ▸";
+    color: var(--muted);
+}
+
+.sidebar-fights details[open] summary::after {
+    content: " ▾";
+}
+
+.sidebar-blocks {
+    margin: 2px 0 6px 8px;
+    padding-left: 6px;
+    border-left: 1px solid var(--panel-border);
+}
+
+.sidebar-blocks a {
+    display: block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    overflow-wrap: anywhere;
+    text-decoration: none;
+}
+
+.keeper-results a:hover,
+.keeper-results a:focus-visible,
+.sidebar-button:hover,
+.sidebar-button:focus-visible,
+.sidebar-fights summary:hover,
+.sidebar-fights summary:focus-visible,
+.sidebar-blocks a:hover,
+.sidebar-blocks a:focus-visible {
+    background: var(--panel-hover);
+}
+
+@media (max-width: 900px) {
+    .home {
+        padding-top: 44px;
+    }
 }
 
 .footer {

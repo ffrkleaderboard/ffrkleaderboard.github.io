@@ -174,6 +174,38 @@ def load_records(book):
     return records
 
 
+def read_rows(name):
+    """Rows of a data file without its header, or none if it doesn't exist yet."""
+    path = DATA_DIR / name
+    if not path.exists():
+        return []
+    with open(path, newline="", encoding="utf-8") as handle:
+        return list(csv.reader(handle))[1:]
+
+
+def find_changes(known, records):
+    """Submissions in `records` that `known` lacks, as [cd, boss, variant, submitted_on, status].
+
+    The sheet keeps one record per keeper and fight, so an update overwrites the old
+    time: this comparison is the only moment the two can be told apart. A record with
+    an unchanged date is a moderator's correction, and so is a new name on a date that
+    fight already had.
+    """
+    dates = {(row[0], *row[1:4]): row[10] for row in known}
+    fight_dates = {(*row[1:4], row[10]) for row in known}
+    changes = []
+    for record in records:
+        fight, date = record[1:4], record[10]
+        previous = dates.get((record[0], *fight))
+        if date == "" or date == previous:
+            continue
+        if previous is not None:
+            changes.append([*fight, date, "updated"])
+        elif (*fight, date) not in fight_dates:
+            changes.append([*fight, date, "new"])
+    return changes
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--xlsx", help="use a local xlsx export instead of downloading")
@@ -218,6 +250,14 @@ def main():
          "head", "head_text", "row_odd", "row_even", "label_color"],
         build_blocks(formula_book, value_book, tabs, config, load_palettes(value_book)),
     )
+
+    known = read_rows("records.csv")
+    if known:
+        write_csv(
+            "record_changes.csv",
+            ["cd", "boss", "variant", "submitted_on", "status"],
+            read_rows("record_changes.csv") + find_changes(known, records),
+        )
 
     write_csv(
         "records.csv",
