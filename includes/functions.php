@@ -4,6 +4,8 @@ const DATA_DIR = __DIR__ . '/../data';
 const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1VSt7_IySH7PxEQNa7h9AYlLtqpO135i1UScY3bR6kzM/edit';
 const RECENT_RECORDS = 30;
 const MEDALS = [1 => 'Gold', 2 => 'Silver', 3 => 'Bronze'];
+const MEDAL_POINTS = [1 => 3, 2 => 2, 3 => 1];
+const HALL_OF_FAME_SIZE = 15;
 const RECORD_STATUS = ['new' => 'New Record!', 'updated' => 'Updated Record'];
 
 function h($value)
@@ -97,6 +99,11 @@ function recent_url()
     return 'recent.html';
 }
 
+function hall_of_fame_url()
+{
+    return 'hall-of-fame.html';
+}
+
 /** Short name of a block within its fight: its element, realm or job. */
 function block_name($block)
 {
@@ -179,6 +186,50 @@ function keeper_entries($site, $username)
     return $entries;
 }
 
+/** Every entry of every fight, each with its sheet and block. */
+function all_entries($site)
+{
+    $entries = [];
+    foreach ($site['blocks'] as $sheet => $blocks) {
+        foreach ($blocks as $block) {
+            foreach (build_ranking($site, $site['records'][block_key($block)] ?? []) as $entry) {
+                $entries[] = $entry + ['sheet' => $sheet, 'block' => $block];
+            }
+        }
+    }
+    return $entries;
+}
+
+/** The keepers with the most medal points. Ties go to whoever has more golds, then silvers. */
+function hall_of_fame($site)
+{
+    $keepers = [];
+    foreach (all_entries($site) as $entry) {
+        $username = $entry['username'];
+        if (!isset($keepers[$username])) {
+            $keepers[$username] = [
+                'username' => $username,
+                'badges' => $entry['badges'],
+                'runs' => 0,
+                'medals' => [1 => 0, 2 => 0, 3 => 0],
+                'points' => 0,
+            ];
+        }
+        $keepers[$username]['runs']++;
+        $rank = $entry['rank'];
+        if ($rank > count(MEDALS)) {
+            continue;
+        }
+        $keepers[$username]['medals'][$rank]++;
+        $keepers[$username]['points'] += MEDAL_POINTS[$rank];
+    }
+    usort($keepers, function ($a, $b) {
+        return [$b['points'], $b['medals'][1], $b['medals'][2], strtolower($a['username'])]
+            <=> [$a['points'], $a['medals'][1], $a['medals'][2], strtolower($b['username'])];
+    });
+    return array_slice($keepers, 0, HALL_OF_FAME_SIZE);
+}
+
 /**
  * The latest submissions across all fights, newest first. Undated ones are left out.
  * Status is empty for a submission that data/record_changes.csv doesn't cover.
@@ -186,14 +237,10 @@ function keeper_entries($site, $username)
 function recent_entries($site)
 {
     $entries = [];
-    foreach ($site['blocks'] as $sheet => $blocks) {
-        foreach ($blocks as $block) {
-            foreach (build_ranking($site, $site['records'][block_key($block)] ?? []) as $entry) {
-                if ($entry['submitted_on'] !== '') {
-                    $status = $site['changes'][change_key($block, $entry['submitted_on'])] ?? '';
-                    $entries[] = $entry + ['sheet' => $sheet, 'block' => $block, 'status' => $status];
-                }
-            }
+    foreach (all_entries($site) as $entry) {
+        if ($entry['submitted_on'] !== '') {
+            $status = $site['changes'][change_key($entry['block'], $entry['submitted_on'])] ?? '';
+            $entries[] = $entry + ['status' => $status];
         }
     }
     usort($entries, function ($a, $b) {

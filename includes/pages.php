@@ -115,6 +115,21 @@ function render_recent_page($site)
     page_end();
 }
 
+function render_hall_of_fame_page($site)
+{
+    page_start("Keepers' Hall of Fame · FFRK Community Leaderboards", $site, '');
+    ?>
+<div class="keeper-page">
+    <header class="fight-head">
+        <h1>Keepers' Hall of Fame</h1>
+        <p>Out of all our brave Keepers, we present the ones who have accumulated the most accolades</p>
+    </header>
+    <?php render_hall_of_fame($site, hall_of_fame($site)); ?>
+</div>
+    <?php
+    page_end();
+}
+
 function render_not_found_page($site)
 {
     page_start('Page not found', $site, '');

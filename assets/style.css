@@ -783,6 +783,69 @@ td.date {
     margin: 0;
 }
 
+/* Hall of fame */
+
+.hall-of-fame {
+    --head: var(--panel);
+    --head-text: var(--text);
+    --row-odd: #e6f0ff;
+    --row-even: #cce0ff;
+}
+
+.hall-of-fame {
+    font-size: 1rem;
+}
+
+.hall-of-fame thead th {
+    padding: 8px 6px;
+    font-size: 0.78rem;
+}
+
+.hall-of-fame td {
+    padding: 9px 6px;
+}
+
+.hall-of-fame .top td {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.hall-of-fame .rank {
+    width: 52px;
+    font-size: 0.85rem;
+}
+
+.runs,
+.medal-count,
+.points {
+    width: 80px;
+    text-align: center;
+}
+
+.runs {
+    color: #444;
+}
+
+.points {
+    font-weight: 700;
+}
+
+.hall-of-fame .place-1 {
+    background: #ffd54a;
+}
+
+.hall-of-fame .place-2 {
+    background: #cfd4dc;
+}
+
+.hall-of-fame .place-3 {
+    background: #dc9a5c;
+}
+
+.hall-of-fame .top .name a {
+    color: var(--ink);
+}
+
 /* Recent records */
 
 .recent-page {
@@ -967,6 +1030,10 @@ td.date {
     text-decoration: none;
 }
 
+.sidebar-button + .sidebar-button {
+    margin-top: 6px;
+}
+
 .sidebar-heading {
     margin-top: 12px;
     color: var(--muted);
@@ -1050,6 +1117,29 @@ td.date {
 @media (max-width: 480px) {
     main {
         padding: 12px;
+    }
+
+    .hall-of-fame {
+        font-size: 0.82rem;
+    }
+
+    .hall-of-fame thead th {
+        padding: 6px 2px;
+        font-size: 0.6rem;
+    }
+
+    .hall-of-fame td {
+        padding: 7px 2px;
+    }
+
+    .hall-of-fame .rank {
+        width: 36px;
+    }
+
+    .runs,
+    .medal-count,
+    .points {
+        width: 40px;
     }
 
     table {

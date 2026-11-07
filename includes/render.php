@@ -82,6 +82,7 @@ function render_sidebar($site)
         <input class="keeper-search" id="keeper-search" type="search" placeholder="Search keeper" aria-label="Search keeper" autocomplete="off" spellcheck="false">
         <ul class="keeper-results" id="keeper-results" hidden></ul>
         <a class="sidebar-button" href="<?= h(recent_url()) ?>">Recent Records</a>
+        <a class="sidebar-button" href="<?= h(hall_of_fame_url()) ?>">Keepers' Hall of Fame</a>
         <?php foreach (home_sections($site) as $title => $sheets): ?>
             <p class="sidebar-heading"><?= h($title) ?></p>
             <ul class="sidebar-fights">
@@ -275,6 +276,42 @@ function render_recent_entries($site, $entries)
                 <td class="rank"><?= render_rank($site, $entry['rank']) ?></td>
                 <td class="time"><?= format_seconds($entry['seconds']) ?></td>
                 <td class="team"><?php render_team($entry['team']); ?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+    <?php
+}
+
+function render_hall_of_fame($site, $keepers)
+{
+    ?>
+    <table class="ranking hall-of-fame">
+        <thead>
+            <tr>
+                <th scope="col">RANK</th>
+                <th scope="col" class="name">RECORD KEEPER</th>
+                <th scope="col">RUNS</th>
+                <?php foreach (MEDALS as $name): ?>
+                    <th scope="col"><?= h(strtoupper($name)) ?></th>
+                <?php endforeach; ?>
+                <th scope="col">POINTS</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($keepers as $index => $keeper): ?>
+            <?php $rank = $index + 1; ?>
+            <tr<?= isset($keeper['medals'][$rank]) ? ' class="top place-' . $rank . '"' : '' ?>>
+                <td class="rank"><?= render_rank($site, $rank) ?></td>
+                <td class="name">
+                    <a href="<?= h(keeper_url($keeper['username'])) ?>"><?= h($keeper['username']) ?></a>
+                    <?php render_badges($site, $keeper['badges']); ?>
+                </td>
+                <td class="runs"><?= $keeper['runs'] ?></td>
+                <?php foreach ($keeper['medals'] as $count): ?>
+                    <td class="medal-count"><?= $count ?></td>
+                <?php endforeach; ?>
+                <td class="points"><?= $keeper['points'] ?></td>
             </tr>
         <?php endforeach; ?>
         </tbody>

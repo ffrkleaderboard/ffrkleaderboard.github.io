@@ -4,8 +4,9 @@ Static site that shows the leaderboards from the
 [FFRecordKeeper Discord sheet](https://docs.google.com/spreadsheets/d/1VSt7_IySH7PxEQNa7h9AYlLtqpO135i1UScY3bR6kzM/edit):
 a home page with clickable fight banners in three sections (Elemental, Realm and
 Job), a Normal/Hard Mode toggle and a dropdown with keeper search and fight links;
-a page per fight with times, teams and character usage rates; a page per keeper; and
-a page with the latest submissions. PHP generates the pages; the published site is
+a page per fight with times, teams and character usage rates; a page per keeper; a
+page with the latest submissions; and a hall of fame ranking keepers by medal points.
+PHP generates the pages; the published site is
 plain HTML, plus one small script for the keeper search.
 
 ## How it updates
