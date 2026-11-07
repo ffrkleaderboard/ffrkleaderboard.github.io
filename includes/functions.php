@@ -210,12 +210,12 @@ function hall_of_fame($site)
             $keepers[$username] = [
                 'username' => $username,
                 'badges' => $entry['badges'],
-                'runs' => 0,
+                'records' => 0,
                 'medals' => [1 => 0, 2 => 0, 3 => 0],
                 'points' => 0,
             ];
         }
-        $keepers[$username]['runs']++;
+        $keepers[$username]['records']++;
         $rank = $entry['rank'];
         if ($rank > count(MEDALS)) {
             continue;

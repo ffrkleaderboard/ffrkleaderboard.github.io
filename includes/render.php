@@ -291,7 +291,7 @@ function render_hall_of_fame($site, $keepers)
             <tr>
                 <th scope="col">RANK</th>
                 <th scope="col" class="name">RECORD KEEPER</th>
-                <th scope="col">RUNS</th>
+                <th scope="col">RECORDS</th>
                 <?php foreach (MEDALS as $name): ?>
                     <th scope="col"><?= h(strtoupper($name)) ?></th>
                 <?php endforeach; ?>
@@ -307,7 +307,7 @@ function render_hall_of_fame($site, $keepers)
                     <a href="<?= h(keeper_url($keeper['username'])) ?>"><?= h($keeper['username']) ?></a>
                     <?php render_badges($site, $keeper['badges']); ?>
                 </td>
-                <td class="runs"><?= $keeper['runs'] ?></td>
+                <td class="record-count"><?= $keeper['records'] ?></td>
                 <?php foreach ($keeper['medals'] as $count): ?>
                     <td class="medal-count"><?= $count ?></td>
                 <?php endforeach; ?>

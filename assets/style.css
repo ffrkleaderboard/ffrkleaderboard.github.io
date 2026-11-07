@@ -815,14 +815,14 @@ td.date {
     font-size: 0.85rem;
 }
 
-.runs,
+.record-count,
 .medal-count,
 .points {
     width: 80px;
     text-align: center;
 }
 
-.runs {
+.record-count {
     color: #444;
 }
 
@@ -1136,7 +1136,7 @@ td.date {
         width: 36px;
     }
 
-    .runs,
+    .record-count,
     .medal-count,
     .points {
         width: 40px;
