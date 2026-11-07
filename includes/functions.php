@@ -200,7 +200,11 @@ function all_entries($site)
     return $entries;
 }
 
-/** The keepers with the most medal points. Ties go to whoever has more golds, then silvers. */
+/**
+ * The keepers with the most medal points. Equal points go to whoever has more golds,
+ * then silvers. Keepers with the very same medals share a place and the next one is
+ * skipped (1, 2, 3, 3, 5), so everyone tied at the last place is listed.
+ */
 function hall_of_fame($site)
 {
     $keepers = [];
@@ -227,7 +231,16 @@ function hall_of_fame($site)
         return [$b['points'], $b['medals'][1], $b['medals'][2], strtolower($a['username'])]
             <=> [$a['points'], $a['medals'][1], $a['medals'][2], strtolower($b['username'])];
     });
-    return array_slice($keepers, 0, HALL_OF_FAME_SIZE);
+    $ranked = [];
+    foreach ($keepers as $index => $keeper) {
+        $tied = $index > 0 && $keeper['medals'] === $keepers[$index - 1]['medals'];
+        $keeper['rank'] = $tied ? end($ranked)['rank'] : $index + 1;
+        if ($keeper['rank'] > HALL_OF_FAME_SIZE) {
+            break;
+        }
+        $ranked[] = $keeper;
+    }
+    return $ranked;
 }
 
 /**

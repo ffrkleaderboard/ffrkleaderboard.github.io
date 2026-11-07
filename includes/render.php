@@ -299,8 +299,8 @@ function render_hall_of_fame($site, $keepers)
             </tr>
         </thead>
         <tbody>
-        <?php foreach ($keepers as $index => $keeper): ?>
-            <?php $rank = $index + 1; ?>
+        <?php foreach ($keepers as $keeper): ?>
+            <?php $rank = $keeper['rank']; ?>
             <tr<?= isset($keeper['medals'][$rank]) ? ' class="top place-' . $rank . '"' : '' ?>>
                 <td class="rank"><?= render_rank($site, $rank) ?></td>
                 <td class="name">
