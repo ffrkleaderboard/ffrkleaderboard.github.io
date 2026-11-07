@@ -5,7 +5,14 @@ on:
     - cron: "7,22,37,52 * * * *"
   push:
     branches: [main]
+  # GitHub skips most scheduled runs, so cron-job.org also starts this workflow
+  # every 15 minutes, with only_if_changed set to true.
   workflow_dispatch:
+    inputs:
+      only_if_changed:
+        description: "Publish only if the sheet has new data"
+        type: boolean
+        default: false
 
 concurrency:
   group: update-site
@@ -50,7 +57,7 @@ jobs:
 
   publish:
     needs: data
-    if: needs.data.outputs.changed == 'true' || github.event_name != 'schedule'
+    if: needs.data.outputs.changed == 'true' || (github.event_name != 'schedule' && !inputs.only_if_changed)
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
