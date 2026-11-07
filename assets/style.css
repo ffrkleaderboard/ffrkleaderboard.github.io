@@ -1,0 +1,802 @@
+:root {
+    --page: #000;
+    --text: #f2f2f2;
+    --muted: #a8a8b8;
+    --panel: #10183f;
+    --panel-hover: #1c2a68;
+    --panel-border: #d8dcf0;
+    --hard: #ff6b6b;
+    --ink: #111;
+    --mono: "Cascadia Mono", Consolas, "DejaVu Sans Mono", Menlo, monospace;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--page);
+    color: var(--text);
+    font-family: var(--mono);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+        linear-gradient(rgb(0 0 0 / 78%), rgb(0 0 0 / 78%)),
+        url("images/bg_top_3rd.png") center 20% / cover no-repeat;
+}
+
+main {
+    max-width: 1880px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+a {
+    color: inherit;
+}
+
+h1,
+h2,
+p {
+    margin: 0;
+}
+
+/* Home */
+
+.hero {
+    padding: 0 0 24px;
+    text-align: center;
+}
+
+.site-banner {
+    display: block;
+    width: 100%;
+    max-width: 1400px;
+    height: auto;
+    margin: 0 auto 8px;
+}
+
+.hero h1 {
+    font-size: clamp(1.6rem, 5vw, 2.6rem);
+}
+
+.hero p {
+    margin-top: 8px;
+    color: var(--muted);
+}
+
+.mode-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.mode-toggle {
+    display: flex;
+    width: fit-content;
+    margin: 0 auto 24px;
+    border: 2px solid var(--panel-border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.mode-toggle label {
+    padding: 10px 22px;
+    color: var(--muted);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#mode-normal:checked ~ .mode-toggle label[for="mode-normal"] {
+    background: var(--panel-hover);
+    color: var(--text);
+}
+
+#mode-hard:checked ~ .mode-toggle label[for="mode-hard"] {
+    background: var(--hard);
+    color: var(--ink);
+}
+
+#mode-normal:focus-visible ~ .mode-toggle label[for="mode-normal"],
+#mode-hard:focus-visible ~ .mode-toggle label[for="mode-hard"] {
+    outline: 2px solid var(--text);
+    outline-offset: -4px;
+}
+
+.fight-title {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    align-items: center;
+}
+
+.fight-title + p {
+    margin-top: 4px;
+    color: var(--muted);
+}
+
+.fight-title .mode-toggle {
+    margin: 0;
+    font-size: 0.82rem;
+}
+
+.mode-toggle a {
+    padding: 5px 16px;
+    color: var(--muted);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.mode-toggle a:hover,
+.mode-toggle a:focus-visible {
+    color: var(--text);
+}
+
+.mode-toggle a:focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: -4px;
+}
+
+.mode-toggle a[aria-current="page"] {
+    background: var(--panel-hover);
+    color: var(--text);
+}
+
+.mode-toggle a.mode-hard[aria-current="page"] {
+    background: var(--hard);
+    color: var(--ink);
+}
+
+.sections {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.sections-two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: none;
+}
+
+.section .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+}
+
+.section {
+    padding: 16px;
+    border: 2px solid var(--panel-border);
+    border-radius: 8px;
+    background: var(--panel);
+}
+
+.section h2 {
+    margin-bottom: 14px;
+    font-size: 1.15rem;
+    text-align: center;
+}
+
+.fight-card {
+    display: block;
+    padding: 6px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.section > .fight-card + .fight-card {
+    margin-top: 8px;
+}
+
+.fight-card:hover,
+.fight-card:focus-visible {
+    background: var(--panel-hover);
+}
+
+.fight-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.card-hard,
+#mode-hard:checked ~ .sections .card-normal {
+    display: none;
+}
+
+#mode-hard:checked ~ .sections .card-hard {
+    display: block;
+}
+
+.fight-caption {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.fight-name {
+    font-weight: 700;
+}
+
+.fight-subtitle,
+.fight-count {
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
+.fight-subtitle {
+    display: block;
+    margin-top: 2px;
+}
+
+@media (max-width: 900px) {
+    .sections {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* The home page scales with the window height so that it fits without scrolling. */
+
+@media (min-width: 901px) {
+    .home {
+        width: min(100%, max(580px, min(1000px, calc((100vh - 385px) * 1.7))));
+        margin: 0 auto;
+    }
+
+    .home .hero {
+        padding-bottom: 10px;
+    }
+
+    .home .site-banner {
+        margin-bottom: 4px;
+    }
+
+    .home .hero h1 {
+        font-size: 1.7rem;
+    }
+
+    .home .hero p {
+        margin-top: 2px;
+        font-size: 0.78rem;
+    }
+
+    .home .mode-toggle {
+        margin-bottom: 10px;
+        font-size: 0.82rem;
+    }
+
+    .home .mode-toggle label {
+        padding: 5px 16px;
+    }
+
+    .home .sections {
+        gap: 12px;
+    }
+
+    .home .section {
+        padding: 8px 10px;
+    }
+
+    .home .section h2 {
+        margin-bottom: 6px;
+        font-size: 0.92rem;
+    }
+
+    .home .fight-card {
+        padding: 3px;
+    }
+
+    .home .section .fight-card + .fight-card {
+        margin-top: 3px;
+    }
+
+    .home .fight-caption {
+        margin-top: 3px;
+    }
+
+    .home .fight-name {
+        font-size: 0.8rem;
+    }
+
+    .home .fight-subtitle,
+    .home .fight-count {
+        font-size: 0.66rem;
+    }
+}
+
+/* Fight page */
+
+.tabs {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    gap: 2px;
+    overflow-x: auto;
+    padding: 8px 16px;
+    background: #15151c;
+    scrollbar-width: thin;
+}
+
+.tab {
+    flex: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.tab:hover,
+.tab:focus-visible {
+    color: var(--text);
+}
+
+.tab-current {
+    background: var(--panel-hover);
+    color: var(--text);
+}
+
+.tab-home {
+    color: var(--text);
+}
+
+.fight-head {
+    padding: 12px 0 20px;
+}
+
+.fight-head h1 + p {
+    margin-top: 4px;
+    color: var(--muted);
+}
+
+.breadcrumb a {
+    color: var(--text);
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover,
+.breadcrumb a:focus-visible {
+    text-decoration: underline;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+    gap: 10px;
+}
+
+.gallery-pending {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+    min-height: 90px;
+    padding: 8px;
+    font-weight: 700;
+    text-align: center;
+}
+
+a.gallery-pending {
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+a.gallery-pending:hover,
+a.gallery-pending:focus-visible {
+    background: var(--panel-hover);
+}
+
+.block-page {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.block {
+    min-width: 0;
+}
+
+.block-head {
+    position: relative;
+    margin-bottom: 4px;
+}
+
+.banner {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.block-label {
+    padding: 28px 8px;
+    color: var(--label);
+    font-size: 1.15rem;
+    text-align: center;
+}
+
+.release {
+    margin-top: 2px;
+    color: var(--muted);
+    font-size: 0.7rem;
+    text-align: right;
+}
+
+.empty {
+    padding: 14px;
+    background: var(--row-odd);
+    color: var(--ink);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+/* Tables */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--ink);
+    font-size: 0.85rem;
+}
+
+thead th {
+    padding: 5px 4px;
+    background: var(--head);
+    color: var(--head-text);
+    font-size: 0.68rem;
+    white-space: nowrap;
+}
+
+tbody tr {
+    background: var(--row-odd);
+}
+
+tbody tr:nth-child(even) {
+    background: var(--row-even);
+}
+
+td {
+    padding: 3px 4px;
+    vertical-align: middle;
+}
+
+.ranking .name {
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+.ranking .name a {
+    color: #1155cc;
+}
+
+.ranking .top td {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.ranking .top .name {
+    font-weight: 700;
+}
+
+.rank {
+    width: 40px;
+    color: #444;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.medal {
+    display: block;
+    margin: 0 auto;
+}
+
+.badge {
+    vertical-align: -3px;
+}
+
+.time {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.team {
+    font-size: 0;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.team img {
+    margin: 0 2px;
+    vertical-align: middle;
+}
+
+td.date {
+    color: #555;
+    font-size: 0.62rem;
+    white-space: nowrap;
+}
+
+.usage {
+    margin-top: 12px;
+}
+
+.usage thead th {
+    background: var(--row-odd);
+    color: var(--ink);
+    font-size: 0.78rem;
+}
+
+.usage .count {
+    width: 40px;
+    color: #444;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.usage .char {
+    text-align: right;
+}
+
+.usage .icon {
+    width: 40px;
+    text-align: center;
+}
+
+.usage .icon img {
+    display: block;
+    margin: 0 auto;
+}
+
+.usage .quote {
+    width: 42%;
+    font-size: 0.62rem;
+    font-weight: 400;
+    text-align: left;
+}
+
+.rate {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 34px;
+}
+
+.bar {
+    flex: 1;
+    height: 9px;
+    background: rgb(0 0 0 / 15%);
+}
+
+.bar span {
+    display: block;
+    height: 100%;
+    background: var(--ink);
+}
+
+.percent {
+    width: 46px;
+    font-size: 0.66rem;
+    text-align: right;
+}
+
+.tab-item {
+    position: relative;
+    flex: none;
+}
+
+.tab-item .tab {
+    display: block;
+}
+
+.tab-menu {
+    display: none;
+}
+
+@media (hover: hover) and (min-width: 900px) {
+    .tabs {
+        flex-wrap: wrap;
+        overflow: visible;
+    }
+
+    .tab-item:hover .tab-menu,
+    .tab-item:focus-within .tab-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 2;
+        display: block;
+        width: max-content;
+        min-width: 100%;
+        max-height: calc(100vh - 60px);
+        margin: 0;
+        padding: 4px;
+        overflow-y: auto;
+        border: 1px solid var(--panel-border);
+        border-radius: 6px;
+        background: var(--panel);
+        list-style: none;
+    }
+
+    .tab-item:nth-last-child(-n + 3) .tab-menu {
+        right: 0;
+        left: auto;
+    }
+
+    .tab-menu a {
+        display: block;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 0.85rem;
+        text-decoration: none;
+    }
+
+    .tab-menu a:hover,
+    .tab-menu a:focus-visible,
+    .tab-menu a[aria-current] {
+        background: var(--panel-hover);
+    }
+}
+
+/* Elemental fights have nine banners per panel: a 3x3 grid fits one screen. */
+
+@media (min-width: 1200px) {
+    .sections-two .gallery {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .sections-two .fight-name {
+        font-size: 0.85rem;
+    }
+
+    .sections-two .fight-count {
+        font-size: 0.72rem;
+        white-space: nowrap;
+    }
+}
+
+/* Banner centered on top, records and statistics side by side below it. */
+
+.block-page .block-head,
+.block-page .empty {
+    max-width: 520px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 901px) {
+    .fight-head-inline {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 14px;
+        align-items: baseline;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 0 8px;
+    }
+
+    .fight-head-inline h1 {
+        font-size: 1.2rem;
+    }
+
+    .fight-head-inline h1 + p {
+        margin-top: 0;
+        font-size: 0.8rem;
+    }
+
+    .block-page {
+        max-width: 1200px;
+    }
+
+    .block-columns {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+        gap: 16px;
+        align-items: start;
+    }
+
+    .block-columns .usage {
+        margin-top: 0;
+    }
+}
+
+/* Keeper link shown over a name in the rankings, and the keeper's own page. */
+
+.keeper {
+    position: relative;
+    display: inline-block;
+}
+
+.ranking .name .keeper-link {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 2;
+    display: none;
+    padding: 5px 10px;
+    border: 1px solid var(--panel-border);
+    border-radius: 6px;
+    background: var(--panel);
+    color: var(--text);
+    font-size: 0.8rem;
+    font-weight: 400;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.ranking .name .keeper-link:hover,
+.ranking .name .keeper-link:focus-visible {
+    background: var(--panel-hover);
+}
+
+.keeper:hover .keeper-link,
+.keeper:focus-within .keeper-link {
+    display: block;
+}
+
+.keeper-records {
+    --head: var(--panel);
+    --head-text: var(--text);
+}
+
+.keeper-page {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.footer {
+    padding: 10px 16px 12px;
+    color: var(--muted);
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+.footer p + p {
+    margin-top: 4px;
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 12px;
+    }
+
+    table {
+        font-size: 0.78rem;
+    }
+
+    td {
+        padding-right: 2px;
+        padding-left: 2px;
+    }
+
+    .rank,
+    .usage .count {
+        width: 32px;
+    }
+
+    .usage thead th {
+        white-space: normal;
+    }
+
+    .team img {
+        width: 20px;
+        height: 20px;
+        margin: 0;
+    }
+}
+
+@media (max-width: 360px) {
+    .ranking .date {
+        display: none;
+    }
+}

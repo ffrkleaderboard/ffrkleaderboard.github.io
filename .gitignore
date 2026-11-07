@@ -1,0 +1,7 @@
+dist/
+*.csv
+!data/*.csv
+assets/images/*
+!assets/images/bg_top_3rd.png
+!assets/images/ffrk_cast_banner.webp
+!assets/images/historia_icon_superskill_200001_running_128.png
