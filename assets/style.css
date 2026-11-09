@@ -21,14 +21,83 @@ body {
     font-family: var(--mono);
 }
 
-body::before {
-    content: "";
+/*
+ * Backgrounds drifting behind the page, whole and side by side. Each picture keeps
+ * its own right margin, so every copy on the strip has the same width and moving
+ * by one copy brings back exactly the same view.
+ */
+
+.backdrop {
     position: fixed;
     inset: 0;
     z-index: -1;
-    background:
-        linear-gradient(rgb(0 0 0 / 78%), rgb(0 0 0 / 78%)),
-        url("images/bg_top_3rd.png") center 20% / cover no-repeat;
+    overflow: hidden;
+    contain: strict;
+}
+
+.backdrop::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgb(0 0 0 / 78%);
+}
+
+.backdrop-track {
+    display: flex;
+    width: max-content;
+    height: 100%;
+    animation: backdrop-scroll linear infinite;
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+.backdrop-track picture {
+    display: contents;
+}
+
+.backdrop-track img {
+    flex: none;
+    width: auto;
+    height: 100%;
+    margin-right: 14px;
+}
+
+/*
+ * Moves the strip by one copy of the backgrounds: 100% / BACKGROUND_COPIES (3).
+ * A plain number, not calc() with a variable, and a 3D translate, so the browser
+ * hands the whole animation to the GPU, which moves it by fractions of a pixel
+ * instead of stepping it a whole pixel at a time on the main thread. The tiny
+ * rotation, too small to see, stops Firefox from snapping the strip to whole
+ * pixels, which it does to anything that is only being slid sideways.
+ */
+@keyframes backdrop-scroll {
+    from {
+        transform: translate3d(0, 0, 0) rotate(0.02deg);
+    }
+    to {
+        transform: translate3d(-33.33333%, 0, 0) rotate(0.02deg);
+    }
+}
+
+/* Phones: one random still background (picked in render_backdrop), filling the screen. */
+.backdrop-still {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 600px) {
+    .backdrop-track {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .backdrop-track {
+        animation: none;
+    }
 }
 
 main {

@@ -32,6 +32,7 @@ function page_start($name, $site, $description, $image, $current = null, $curren
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<?php render_backdrop(); ?>
 <?php if ($current !== null): ?>
 <header class="topbar">
 <nav class="tabs" aria-label="Fights">
@@ -69,6 +70,48 @@ function page_end()
 </footer>
 </body>
 </html>
+    <?php
+}
+
+/**
+ * Background of the page: BACKGROUNDS whole, side by side, on a strip that drifts to
+ * the left without stopping. The strip holds BACKGROUND_COPIES copies of them and
+ * moves by one copy per cycle, so the restart lands on an identical picture.
+ *
+ * Phones (PHONE_MEDIA) get one still background instead, picked at random on every
+ * page load by the script below. The strip's images point to an empty pixel there,
+ * so a phone downloads only the one it shows.
+ */
+function render_backdrop()
+{
+    $duration = BACKGROUND_SECONDS * count(BACKGROUNDS);
+    $images = array_map(function ($image) {
+        return 'assets/images/' . $image;
+    }, BACKGROUNDS);
+    ?>
+<div class="backdrop" aria-hidden="true">
+    <div class="backdrop-track" style="animation-duration:<?= $duration ?>s">
+        <?php for ($copy = 0; $copy < BACKGROUND_COPIES; $copy++): ?>
+            <?php foreach ($images as $image): ?>
+                <picture>
+                    <source media="<?= h(PHONE_MEDIA) ?>" srcset="<?= EMPTY_PIXEL ?>">
+                    <img src="<?= h($image) ?>" alt="" width="640" height="1136" decoding="async">
+                </picture>
+            <?php endforeach; ?>
+        <?php endfor; ?>
+    </div>
+    <script>
+        (function () {
+            if (!matchMedia(<?= json_encode(PHONE_MEDIA) ?>).matches) return;
+            var images = <?= json_encode($images, JSON_UNESCAPED_SLASHES) ?>;
+            var img = document.createElement('img');
+            img.className = 'backdrop-still';
+            img.alt = '';
+            img.src = images[Math.floor(Math.random() * images.length)];
+            document.currentScript.before(img);
+        })();
+    </script>
+</div>
     <?php
 }
 

@@ -6,6 +6,23 @@ const SITE_URL = 'https://ffrkleaderboard.github.io/';
 const SITE_NAME = 'FFRK Community Leaderboards';
 const SITE_BANNER = ['assets/images/ffrk_cast_banner.webp', 1600, 400];
 const BANNER_SIZE = [576, 144];
+/** Page backgrounds in assets/images/, side by side on a strip that drifts to the left. */
+const BACKGROUNDS = [
+    'bg_top_3rd.webp',
+    'bg_summer2022_top.webp',
+    'bg_glory_2022.webp',
+    'bg_glory_2023.webp',
+    'bg_glory_2025.webp',
+];
+/** Seconds the strip takes to move by one background: lower is faster. */
+const BACKGROUND_SECONDS = 60;
+/** Copies of the backgrounds on the strip: enough to fill a very wide screen while one scrolls away.
+    If you change it, change the -33.33333% (100% / copies) in backdrop-scroll in style.css too. */
+const BACKGROUND_COPIES = 3;
+/** Screens that get one random still background instead of the strip. Matches the phone rules in style.css. */
+const PHONE_MEDIA = '(max-width: 600px)';
+/** A transparent 1x1 GIF, standing in for the strip's images on phones so they are not downloaded. */
+const EMPTY_PIXEL = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
 const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1VSt7_IySH7PxEQNa7h9AYlLtqpO135i1UScY3bR6kzM/edit';
 const DATABASE_URL = 'https://docs.google.com/spreadsheets/d/1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk/edit?gid=938172420#gid=938172420';
 const RECENT_RECORDS = 30;
