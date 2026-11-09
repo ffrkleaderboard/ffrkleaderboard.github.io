@@ -2,7 +2,13 @@
 
 function render_home_page($site, $hardMode)
 {
-    page_start('FFRK Community Leaderboards', $site);
+    $submissions = array_sum(array_map('count', $site['records']));
+    page_start(
+        SITE_NAME,
+        $site,
+        "Fastest clears of FFRK's toughest fights from the FFRecordKeeper Discord: $submissions records, with teams and character usage rates.",
+        SITE_BANNER
+    );
     render_sidebar($site);
     ?>
 <div class="home">
@@ -10,7 +16,7 @@ function render_home_page($site, $hardMode)
     <img class="site-banner" src="assets/images/ffrk_cast_banner.webp" alt="" width="1600" height="400">
     <h1>FFRK Community Leaderboards</h1>
     <p>FFRecordKeeper Discord</p>
-    <p>Thanks to the collaboration of our Keepers we have received <?= array_sum(array_map('count', $site['records'])) ?> submissions!</p>
+    <p>Thanks to the collaboration of our Keepers we have received <?= $submissions ?> submissions!</p>
     <p>Good luck and keep it going!</p>
 </header>
 <input class="mode-input" type="radio" name="mode" id="mode-normal"<?= $hardMode ? '' : ' checked' ?>>
@@ -42,7 +48,13 @@ function render_gallery_page($site, $sheet)
 {
     $fight = $site['fights'][$sheet];
     $groups = gallery_groups($site['blocks'][$sheet]);
-    page_start($sheet . ' · FFRK Community Leaderboards', $site, $sheet);
+    page_start(
+        $sheet,
+        $site,
+        $fight['subtitle'] . ' · ' . fight_record_count($site, $sheet) . ' records',
+        banner_preview(fight_preview_banner($site, $sheet)),
+        $sheet
+    );
     ?>
 <header class="fight-head">
     <div class="fight-title">
@@ -69,7 +81,22 @@ function render_gallery_page($site, $sheet)
 
 function render_block_page($site, $sheet, $block)
 {
-    page_start($sheet . ' ' . block_name($block) . ' · FFRK Community Leaderboards', $site, $sheet, $block['position']);
+    $ranking = build_ranking($site, $site['records'][block_key($block)] ?? []);
+    $description = block_record_count($site, $block) . ' records';
+    if ($ranking) {
+        $best = $ranking[0];
+        $team = $best['team'] ? ' with ' . implode(', ', array_column($best['team'], 'name')) : '';
+        $description = 'Fastest: ' . $best['username'] . ' in ' . format_seconds($best['seconds']) . $team
+            . ' · ' . $description;
+    }
+    page_start(
+        $sheet . ' ' . block_name($block),
+        $site,
+        $description,
+        banner_preview($block['banner']),
+        $sheet,
+        $block['position']
+    );
     ?>
 <header class="fight-head fight-head-inline">
     <p class="breadcrumb"><a href="<?= h(fight_url($sheet)) ?>">‹ <?= h($sheet) ?></a></p>
@@ -86,7 +113,18 @@ function render_block_page($site, $sheet, $block)
 function render_keeper_page($site, $username)
 {
     $entries = keeper_entries($site, $username);
-    page_start($username . ' · FFRK Community Leaderboards', $site, '');
+    $medals = array_count_values(array_column($entries, 'rank'));
+    $podiums = [];
+    foreach (MEDALS as $rank => $name) {
+        $podiums[] = ($medals[$rank] ?? 0) . ' ' . strtolower($name);
+    }
+    page_start(
+        $username,
+        $site,
+        count($entries) . ' records · ' . implode(', ', $podiums),
+        SITE_BANNER,
+        ''
+    );
     ?>
 <div class="keeper-page">
     <header class="fight-head">
@@ -94,15 +132,17 @@ function render_keeper_page($site, $username)
         <p><?= count($entries) ?> records</p>
         <?php render_podiums($site, $entries); ?>
     </header>
+    <?php render_keeper_filters($entries); ?>
     <?php render_keeper_entries($site, $entries); ?>
 </div>
+<script src="assets/keeper-filters.js" defer></script>
     <?php
     page_end();
 }
 
 function render_recent_page($site)
 {
-    page_start('Recent Records · FFRK Community Leaderboards', $site, '');
+    page_start('Recent Records', $site, 'The last ' . RECENT_RECORDS . ' records submitted to the FFRecordKeeper Discord.', SITE_BANNER, '');
     ?>
 <div class="recent-page">
     <header class="fight-head">
@@ -117,14 +157,25 @@ function render_recent_page($site)
 
 function render_hall_of_fame_page($site)
 {
-    page_start("Keepers' Hall of Fame · FFRK Community Leaderboards", $site, '');
+    $keepers = hall_of_fame($site);
+    $leaders = array_column(array_filter($keepers, function ($keeper) {
+        return $keeper['rank'] === 1;
+    }), 'username');
+    page_start(
+        "Keepers' Hall of Fame",
+        $site,
+        'The keepers with the most medals: ' . implode(' and ', $leaders)
+            . (count($leaders) > 1 ? ' lead' : ' leads') . ' with ' . $keepers[0]['points'] . ' points.',
+        SITE_BANNER,
+        ''
+    );
     ?>
 <div class="keeper-page">
     <header class="fight-head">
         <h1>Keepers' Hall of Fame</h1>
         <p>Out of all our brave Keepers, we present the ones who have accumulated the most accolades</p>
     </header>
-    <?php render_hall_of_fame($site, hall_of_fame($site)); ?>
+    <?php render_hall_of_fame($site, $keepers); ?>
 </div>
     <?php
     page_end();
@@ -132,7 +183,7 @@ function render_hall_of_fame_page($site)
 
 function render_not_found_page($site)
 {
-    page_start('Page not found', $site, '');
+    page_start('Page not found', $site, 'This page does not exist.', SITE_BANNER, '');
     echo '<header class="hero"><h1>Page not found</h1></header>';
     page_end();
 }

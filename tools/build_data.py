@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
-"""Regenerates data/*.csv and assets/banners/ from the public Google Sheet.
+"""Regenerates data/*.csv, assets/banners/ and assets/sprites/ from the public Google Sheet.
 
-The sheet is only ever read, through its public xlsx export.
+The sheet is only ever read, through its public xlsx export. Character sprites,
+medals and badges are copied into assets/sprites/ so the site doesn't depend on
+their hosts; one that can't be downloaded keeps its original URL.
 
     pip install openpyxl pillow
     python tools/build_data.py                  # download the sheet and rebuild
@@ -10,14 +12,17 @@ The sheet is only ever read, through its public xlsx export.
 import argparse
 import csv
 import hashlib
+import io
 import re
 import sys
 import tempfile
 import urllib.request
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import openpyxl
+from PIL import Image
 
 SHEET_ID = "1VSt7_IySH7PxEQNa7h9AYlLtqpO135i1UScY3bR6kzM"
 EXPORT_URL = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/export?format=xlsx"
@@ -25,6 +30,10 @@ EXPORT_URL = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/export?format=x
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
 BANNER_DIR = ROOT / "assets" / "banners"
+SPRITE_DIR = ROOT / "assets" / "sprites"
+# Banners are 576x144 PNGs of about 120 KB; as WebP at this quality, about 26 KB.
+BANNER_QUALITY = 85
+DOWNLOAD_WORKERS = 4
 
 # Tabs shown on the site, left to right. Everything after JCD-HM is internal.
 FIRST_TAB, LAST_TAB = "LICH", "JCD-HM"
@@ -118,10 +127,51 @@ def block_palette(cd, variant, palettes):
 
 
 def save_banner(image):
+    """Saves a banner as WebP, named after the sheet's image so an unchanged one keeps its name."""
     data = image._data()
-    name = hashlib.md5(data).hexdigest()[:12] + "." + (image.format or "png").lower()
-    (BANNER_DIR / name).write_bytes(data)
+    name = hashlib.md5(data).hexdigest()[:12] + ".webp"
+    Image.open(io.BytesIO(data)).save(BANNER_DIR / name, "WEBP", quality=BANNER_QUALITY)
     return name
+
+
+def download_image(url):
+    """The image at `url` as (bytes, extension), or None if it can't be fetched."""
+    try:
+        with urllib.request.urlopen(url, timeout=30) as response:
+            data = response.read()
+        with Image.open(io.BytesIO(data)) as image:
+            extension = image.format.lower()
+            image.verify()
+    except Exception as error:  # Any failure leaves the image on its host.
+        print(f"  could not copy {url}: {error}")
+        return None
+    return data, "jpg" if extension == "jpeg" else extension
+
+
+def mirror_images(urls):
+    """Copies each image into assets/sprites/, returning {url: path the pages use}.
+
+    Files are named after their URL, so each one is only downloaded once; files no
+    longer used are removed. An image that fails to download keeps its URL.
+    """
+    SPRITE_DIR.mkdir(parents=True, exist_ok=True)
+    existing = {path.stem: path.name for path in SPRITE_DIR.iterdir()}
+    keys = {url: hashlib.md5(url.encode()).hexdigest()[:12] for url in set(urls) if url}
+    missing = [url for url, key in keys.items() if key not in existing]
+    with ThreadPoolExecutor(DOWNLOAD_WORKERS) as pool:
+        for url, result in zip(missing, pool.map(download_image, missing)):
+            if result is not None:
+                data, extension = result
+                name = f"{keys[url]}.{extension}"
+                (SPRITE_DIR / name).write_bytes(data)
+                existing[keys[url]] = name
+    paths = {url: f"assets/sprites/{existing[key]}" if key in existing else url for url, key in keys.items()}
+    used = {existing[key] for key in keys.values() if key in existing}
+    for path in SPRITE_DIR.iterdir():
+        if path.name not in used:
+            path.unlink()
+    print(f"  assets/sprites: {len(used)} files, {len(keys) - len(used)} left on their host")
+    return paths
 
 
 def build_blocks(formula_book, value_book, tabs, config, palettes):
@@ -270,7 +320,6 @@ def main():
         for row in value_book["CharIcons"].iter_rows(min_row=2, max_col=4, values_only=True)
         if row[0]
     ]
-    write_csv("characters.csv", ["code", "name", "icon", "sprite"], characters)
 
     badges = [
         [clean(row[0])] + [badge for badge, flag in zip(BADGE_COLUMNS, row[1:7]) if flag is True]
@@ -284,7 +333,14 @@ def main():
         for row in value_book["Icons"].iter_rows(min_row=2, max_col=2, values_only=True)
         if row[0] is not None and row[1]
     ]
-    write_csv("icons.csv", ["icon", "url"], icons)
+
+    paths = mirror_images([url for row in characters for url in row[2:]] + [row[1] for row in icons])
+    write_csv(
+        "characters.csv",
+        ["code", "name", "icon", "sprite"],
+        [[code, name, paths.get(icon, icon), paths.get(sprite, sprite)] for code, name, icon, sprite in characters],
+    )
+    write_csv("icons.csv", ["icon", "url"], [[icon, paths[url]] for icon, url in icons])
 
     print(f"  assets/banners: {sum(1 for _ in BANNER_DIR.iterdir())} files")
 

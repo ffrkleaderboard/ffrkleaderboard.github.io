@@ -1,6 +1,11 @@
 <?php
 
 const DATA_DIR = __DIR__ . '/../data';
+/** Where the site is published. Link previews need absolute image URLs. */
+const SITE_URL = 'https://ffrkleaderboard.github.io/';
+const SITE_NAME = 'FFRK Community Leaderboards';
+const SITE_BANNER = ['assets/images/ffrk_cast_banner.webp', 1600, 400];
+const BANNER_SIZE = [576, 144];
 const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1VSt7_IySH7PxEQNa7h9AYlLtqpO135i1UScY3bR6kzM/edit';
 const DATABASE_URL = 'https://docs.google.com/spreadsheets/d/1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk/edit?gid=938172420#gid=938172420';
 const RECENT_RECORDS = 30;
@@ -8,6 +13,9 @@ const MEDALS = [1 => 'Gold', 2 => 'Silver', 3 => 'Bronze'];
 const MEDAL_POINTS = [1 => 3, 2 => 2, 3 => 1];
 const HALL_OF_FAME_SIZE = 15;
 const RECORD_STATUS = ['new' => 'New Record!', 'updated' => 'Updated Record'];
+/** Filters of a keeper's page and their choices, in the order they are shown. */
+const FILTER_CHOICES = ['type' => ['Elemental', 'Realm', 'Job'], 'mode' => ['Normal', 'Hard Mode']];
+const FILTER_NAMES = ['type' => 'Fight type', 'mode' => 'Difficulty'];
 
 function h($value)
 {
@@ -21,8 +29,23 @@ function read_csv($name)
         throw new RuntimeException('Missing data file: ' . $name);
     }
     $header = fgetcsv($handle, 0, ',', '"', '');
+    if ($header === false) {
+        throw new RuntimeException('Empty data file: ' . $name);
+    }
+    // A spreadsheet export may start with a byte order mark, which would stick to the first column name.
+    $header[0] = preg_replace('/^\xEF\xBB\xBF/', '', $header[0]);
     $rows = [];
+    $rowNumber = 1;
     while (($row = fgetcsv($handle, 0, ',', '"', '')) !== false) {
+        $rowNumber++;
+        if ($row === [null]) {
+            continue; // Blank line.
+        }
+        if (count($row) !== count($header)) {
+            throw new RuntimeException(sprintf(
+                '%s row %d has %d fields, expected %d', $name, $rowNumber, count($row), count($header)
+            ));
+        }
         $rows[] = array_combine($header, $row);
     }
     fclose($handle);
@@ -116,6 +139,23 @@ function block_record_count($site, $block)
     return count($site['records'][block_key($block)] ?? []);
 }
 
+/** Preview image of a page shared as a link: [path, width, height]. */
+function banner_preview($banner)
+{
+    return $banner === '' ? SITE_BANNER : ['assets/banners/' . $banner, BANNER_SIZE[0], BANNER_SIZE[1]];
+}
+
+/** Banner of a fight's gallery in link previews: its first block that has one. */
+function fight_preview_banner($site, $sheet)
+{
+    foreach ($site['blocks'][$sheet] as $block) {
+        if ($block['banner'] !== '') {
+            return $block['banner'];
+        }
+    }
+    return '';
+}
+
 /** Blocks that have a page. The rest are placeholders for fights yet to come. */
 function open_blocks($site, $sheet)
 {
@@ -161,6 +201,25 @@ function keeper_names($site)
     return array_map('strval', array_keys($names));
 }
 
+/** File the keeper search loads its names from, shared by every page. */
+function keeper_index_url()
+{
+    return 'keepers.json';
+}
+
+/** Every keeper's name and page, alphabetically, as the keeper search reads them. */
+function keeper_index($site)
+{
+    $keepers = [];
+    foreach (keeper_names($site) as $username) {
+        $keepers[] = ['name' => $username, 'url' => keeper_url($username)];
+    }
+    usort($keepers, function ($a, $b) {
+        return strcasecmp($a['name'], $b['name']);
+    });
+    return $keepers;
+}
+
 /** Full name of a block, e.g. "Physical Water Weak Magus Sisters" or "JCD2 Mage II". */
 function block_full_name($block)
 {
@@ -185,6 +244,37 @@ function keeper_entries($site, $username)
         }
     }
     return $entries;
+}
+
+/** What the filters of a keeper's page match an entry by: its kind of fight and difficulty. */
+function entry_filters($entry)
+{
+    return [
+        'type' => strtok(fight_section($entry['block']['cd']), ' '),
+        'mode' => is_hard_mode($entry['sheet']) ? 'Hard Mode' : 'Normal',
+    ];
+}
+
+/**
+ * Choices of each filter of a keeper's page with how many entries each matches,
+ * leaving out a filter that all the entries match the same way.
+ */
+function filter_choices($entries)
+{
+    $counts = [];
+    foreach ($entries as $entry) {
+        foreach (entry_filters($entry) as $filter => $value) {
+            $counts[$filter][$value] = ($counts[$filter][$value] ?? 0) + 1;
+        }
+    }
+    $choices = [];
+    foreach (FILTER_CHOICES as $filter => $values) {
+        $found = array_intersect_key(array_fill_keys($values, 0), $counts[$filter] ?? []);
+        if (count($found) > 1) {
+            $choices[$filter] = array_replace($found, $counts[$filter]);
+        }
+    }
+    return $choices;
 }
 
 /** Every entry of every fight, each with its sheet and block. */

@@ -1,7 +1,15 @@
 <?php
 
-function page_start($title, $site, $current = null, $currentBlock = null)
+/**
+ * Opens a page titled $name, followed by the site's name. $description and $image
+ * (from banner_preview) fill the preview that Discord and other apps show for a
+ * shared link. $current is the sheet whose tab is highlighted, or '' for none; null
+ * leaves out the tab bar, as on the home page, whose dropdown has the keeper search.
+ */
+function page_start($name, $site, $description, $image, $current = null, $currentBlock = null)
 {
+    $title = $name === SITE_NAME ? $name : $name . ' · ' . SITE_NAME;
+    list($imagePath, $imageWidth, $imageHeight) = $image;
     ?>
 <!doctype html>
 <html lang="en">
@@ -10,11 +18,22 @@ function page_start($title, $site, $current = null, $currentBlock = null)
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="referrer" content="no-referrer">
     <title><?= h($title) ?></title>
+    <meta name="description" content="<?= h($description) ?>">
+    <meta name="theme-color" content="#10183f">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="<?= h(SITE_NAME) ?>">
+    <meta property="og:title" content="<?= h($name) ?>">
+    <meta property="og:description" content="<?= h($description) ?>">
+    <meta property="og:image" content="<?= h(SITE_URL . $imagePath) ?>">
+    <meta property="og:image:width" content="<?= h($imageWidth) ?>">
+    <meta property="og:image:height" content="<?= h($imageHeight) ?>">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" type="image/png" href="assets/images/historia_icon_superskill_200001_running_128.png">
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 <?php if ($current !== null): ?>
+<header class="topbar">
 <nav class="tabs" aria-label="Fights">
     <a class="tab tab-home" href="<?= h(home_url(is_hard_mode((string) $current))) ?>">Home</a>
     <?php foreach ($site['fights'] as $sheet => $fight): ?>
@@ -28,6 +47,8 @@ function page_start($title, $site, $current = null, $currentBlock = null)
         </div>
     <?php endforeach; ?>
 </nav>
+<?php render_keeper_search('topbar-search'); ?>
+</header>
 <?php endif; ?>
 <main>
     <?php
@@ -69,22 +90,26 @@ function render_sidebar_fight($site, $sheet)
     <?php
 }
 
+/** Search box that lists the keepers whose name contains what is typed, from keeper_index_url(). */
+function render_keeper_search($class)
+{
+    ?>
+<div class="keeper-finder <?= h($class) ?>" role="search" data-index="<?= h(keeper_index_url()) ?>">
+    <input class="keeper-search" type="search" placeholder="Search keeper" aria-label="Search keeper" autocomplete="off" spellcheck="false">
+    <ul class="keeper-results" hidden></ul>
+</div>
+<script src="assets/keeper-search.js" defer></script>
+    <?php
+}
+
 /** Dropdown of the home page: keeper search, recent records and every fight. */
 function render_sidebar($site)
 {
-    $keepers = [];
-    foreach (keeper_names($site) as $username) {
-        $keepers[] = ['name' => $username, 'url' => keeper_url($username)];
-    }
-    usort($keepers, function ($a, $b) {
-        return strcasecmp($a['name'], $b['name']);
-    });
     ?>
 <details class="sidebar">
     <summary>☰ Menu</summary>
     <div class="sidebar-panel">
-        <input class="keeper-search" id="keeper-search" type="search" placeholder="Search keeper" aria-label="Search keeper" autocomplete="off" spellcheck="false">
-        <ul class="keeper-results" id="keeper-results" hidden></ul>
+        <?php render_keeper_search('sidebar-search'); ?>
         <a class="sidebar-button" href="<?= h(recent_url()) ?>">Recent Records</a>
         <a class="sidebar-button" href="<?= h(hall_of_fame_url()) ?>">Keepers' Hall of Fame</a>
         <?php foreach (home_sections($site) as $title => $sheets): ?>
@@ -98,7 +123,6 @@ function render_sidebar($site)
         <?php endforeach; ?>
     </div>
 </details>
-<script type="application/json" id="keeper-index"><?= json_encode($keepers, JSON_HEX_TAG | JSON_UNESCAPED_UNICODE) ?></script>
 <script src="assets/sidebar.js" defer></script>
     <?php
 }
@@ -210,6 +234,40 @@ function render_podiums($site, $entries)
     <?php
 }
 
+/**
+ * Buttons that narrow a keeper's records down by kind of fight, difficulty and podium
+ * finishes. Hidden until keeper-filters.js runs, since they need it to work.
+ */
+function render_keeper_filters($entries)
+{
+    $choices = filter_choices($entries);
+    $podiums = count(array_filter(array_column($entries, 'rank'), function ($rank) {
+        return $rank <= count(MEDALS);
+    }));
+    $hasPodiumFilter = $podiums > 0 && $podiums < count($entries);
+    if (!$choices && !$hasPodiumFilter) {
+        return;
+    }
+    ?>
+    <div class="record-filters" hidden>
+        <?php foreach ($choices as $filter => $counts): ?>
+            <div class="filter-group" role="group" aria-label="<?= h(FILTER_NAMES[$filter]) ?>">
+                <button type="button" data-filter="<?= h($filter) ?>" data-value="" aria-pressed="true">All</button>
+                <?php foreach ($counts as $value => $count): ?>
+                    <button type="button" data-filter="<?= h($filter) ?>" data-value="<?= h($value) ?>" aria-pressed="false"><?= h($value) ?> <span><?= $count ?></span></button>
+                <?php endforeach; ?>
+            </div>
+        <?php endforeach; ?>
+        <?php if ($hasPodiumFilter): ?>
+            <div class="filter-group">
+                <button type="button" data-filter="podium" aria-pressed="false">Podiums only <span><?= $podiums ?></span></button>
+            </div>
+        <?php endif; ?>
+        <p class="filter-count" aria-live="polite"></p>
+    </div>
+    <?php
+}
+
 function render_keeper_entries($site, $entries)
 {
     ?>
@@ -225,7 +283,8 @@ function render_keeper_entries($site, $entries)
         </thead>
         <tbody>
         <?php foreach ($entries as $entry): ?>
-            <tr<?= $entry['rank'] <= 3 ? ' class="top"' : '' ?> style="background:<?= h($entry['block']['row_odd']) ?>">
+            <?php $filters = entry_filters($entry); ?>
+            <tr<?= $entry['rank'] <= 3 ? ' class="top"' : '' ?> style="background:<?= h($entry['block']['row_odd']) ?>" data-type="<?= h($filters['type']) ?>" data-mode="<?= h($filters['mode']) ?>" data-podium="<?= $entry['rank'] <= count(MEDALS) ? 1 : 0 ?>">
                 <td class="rank"><?= render_rank($site, $entry['rank']) ?></td>
                 <td class="name">
                     <a href="<?= h(fight_url($entry['sheet'], $entry['block']['position'])) ?>"><?= h(block_full_name($entry['block'])) ?></a>
@@ -240,6 +299,7 @@ function render_keeper_entries($site, $entries)
         <?php endforeach; ?>
         </tbody>
     </table>
+    <p class="empty filter-empty" hidden>No records match these filters</p>
     <?php
 }
 

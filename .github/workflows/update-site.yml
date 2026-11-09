@@ -43,7 +43,7 @@ jobs:
       - name: Save changes
         id: save
         run: |
-          git add data assets/banners
+          git add data assets/banners assets/sprites
           if git diff --cached --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0

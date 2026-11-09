@@ -15,8 +15,9 @@ Records reach the sheet when a moderator approves a submission on Discord. The
 sheet can't notify the site, so a GitHub Actions workflow reads it every 15
 minutes. The sheet is only ever read.
 
-1. `tools/build_data.py` rebuilds `data/` and `assets/banners/` from the sheet's
-   public export. If the export looks broken it stops, and the site stays as it is.
+1. `tools/build_data.py` rebuilds `data/`, `assets/banners/` and `assets/sprites/`
+   from the sheet's public export. If the export looks broken it stops, and the
+   site stays as it is.
 2. If anything changed, the workflow commits it, runs `tools/build_site.php` and
    publishes `dist/` to GitHub Pages.
 
@@ -44,13 +45,24 @@ python tools/build_data.py
 - `includes/functions.php`: loads the CSVs, builds rankings and usage rates
 - `includes/render.php`: HTML for the shared parts of a page
 - `includes/pages.php`: HTML for each kind of page
-- `assets/sidebar.js`: keeper search of the home dropdown
+- `assets/keeper-search.js`: keeper search of every page, which loads the names
+  from `keepers.json`, generated with the pages
+- `assets/keeper-filters.js`: filters of a keeper's records
+- `assets/sidebar.js`: closes the home dropdown on Escape or a click outside it
 - `data/`: generated CSVs (`records.csv` is the sheet's RawData tab;
   `record_changes.csv` logs each submission as new or updated, which the sheet
   doesn't keep, so it is added to rather than regenerated)
-- `tools/build_data.py`: regenerates `data/` and `assets/banners/` from the sheet
+- `assets/banners/`: fight banners from the sheet, converted to WebP
+- `assets/sprites/`: copies of the character sprites, medals and badges
+- `tools/build_data.py`: regenerates `data/`, `assets/banners/` and `assets/sprites/`
+  from the sheet
 - `tools/build_site.php`: generates the pages in `dist/`
 - `.github/workflows/update-site.yml`: the scheduled update
 
-Character sprites, medals and badges load from Google and Imgur, the same files
-the sheet uses, so the site needs those hosts to be reachable.
+Character sprites, medals and badges are copied from the files the sheet uses on
+Google and Imgur, each downloaded once. One that can't be downloaded keeps loading
+from its host until a later update manages to copy it.
+
+Link previews (Discord and other apps) need absolute image URLs, built from
+`SITE_URL` in `includes/functions.php`; change it if the site moves to another
+address.

@@ -63,6 +63,10 @@ write_page(home_url(true), 'render_home_page', $site, true);
 write_page('404.html', 'render_not_found_page', $site);
 write_page(recent_url(), 'render_recent_page', $site);
 write_page(hall_of_fame_url(), 'render_hall_of_fame_page', $site);
+file_put_contents(
+    DIST_DIR . '/' . keeper_index_url(),
+    json_encode(keeper_index($site), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)
+);
 
 $pages = 5;
 foreach (array_keys($site['fights']) as $sheet) {
