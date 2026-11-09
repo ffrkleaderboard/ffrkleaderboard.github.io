@@ -85,8 +85,7 @@ function render_block_page($site, $sheet, $block)
     $description = block_record_count($site, $block) . ' records';
     if ($ranking) {
         $best = $ranking[0];
-        $team = $best['team'] ? ' with ' . implode(', ', array_column($best['team'], 'name')) : '';
-        $description = 'Fastest: ' . $best['username'] . ' in ' . format_seconds($best['seconds']) . $team
+        $description = 'Fastest: ' . $best['username'] . ' in ' . format_seconds($best['seconds'])
             . ' · ' . $description;
     }
     page_start(

@@ -423,7 +423,7 @@ function render_ranking($site, $block, $ranking)
         </tbody>
         <tfoot>
             <tr>
-                <th scope="row" colspan="2" class="name">AVERAGE</th>
+                <th scope="row" colspan="2" class="name">AVERAGE CLEAR TIME</th>
                 <td class="time"><?= format_seconds(average_seconds($ranking)) ?></td>
                 <td></td>
                 <?php if ($hasDate): ?><td class="date"></td><?php endif; ?>
