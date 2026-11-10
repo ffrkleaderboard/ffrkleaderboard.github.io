@@ -175,7 +175,7 @@ function render_fight_card($site, $sheet, $banner, $modeClass)
     ?>
     <a class="fight-card <?= h($modeClass) ?>" href="<?= h(fight_url($sheet)) ?>">
         <?php if ($banner !== ''): ?>
-            <img src="assets/banners/<?= h($banner) ?>" alt="" width="576" height="144" loading="lazy">
+            <img src="<?= h($banner) ?>" alt="" width="576" height="144" loading="lazy">
         <?php endif; ?>
         <span class="fight-caption">
             <span class="fight-name"><?= h($sheet) ?></span>

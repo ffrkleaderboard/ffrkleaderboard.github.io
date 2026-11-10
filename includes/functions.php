@@ -398,13 +398,24 @@ function home_sections($site)
     return $sections;
 }
 
-/** Banners of the first block that has one in both modes: [normal, hard]. */
+/** Home banners made for the site, one per sheet, named like the sheet: LICH.webp, LICH-HM.webp. */
+const FIGHT_BANNER_DIR = 'assets/fight-banners/';
+
+/**
+ * Home card banners of a fight, [normal, hard], as paths from the site root: the
+ * site's own FIGHT_BANNER_DIR/<sheet>.webp, or else the banner of the first block
+ * that has one in both modes, or '' when there is none.
+ */
 function fight_banners($site, $sheet)
 {
+    $own = [FIGHT_BANNER_DIR . $sheet . '.webp', FIGHT_BANNER_DIR . $sheet . '-HM.webp'];
+    if (is_file(__DIR__ . '/../' . $own[0]) && is_file(__DIR__ . '/../' . $own[1])) {
+        return $own;
+    }
     $hardBlocks = $site['blocks'][$sheet . '-HM'];
     foreach ($site['blocks'][$sheet] as $index => $block) {
         if ($block['banner'] !== '' && $hardBlocks[$index]['banner'] !== '') {
-            return [$block['banner'], $hardBlocks[$index]['banner']];
+            return ['assets/banners/' . $block['banner'], 'assets/banners/' . $hardBlocks[$index]['banner']];
         }
     }
     return ['', ''];
