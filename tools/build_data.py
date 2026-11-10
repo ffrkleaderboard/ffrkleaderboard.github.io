@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
-"""Regenerates data/*.csv, assets/banners/ and assets/sprites/ from the public Google Sheet.
+"""Regenerates data/*.csv and assets/sprites/ from the public Google Sheet.
 
-The sheet is only ever read, through its public xlsx export. Character sprites,
+The sheet is only ever read, through its public xlsx export. Block banners are not
+taken from it: each one is a file in assets/block-banners/ named <sheet>-<position>.webp
+(LICH-14.webp), added by hand. Character sprites,
 medals and badges are copied into assets/sprites/ so the site doesn't depend on
 their hosts; one that can't be downloaded keeps its original URL.
 
@@ -17,7 +19,6 @@ import re
 import sys
 import tempfile
 import urllib.request
-from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -29,10 +30,8 @@ EXPORT_URL = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/export?format=x
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
-BANNER_DIR = ROOT / "assets" / "banners"
+BANNER_DIR = ROOT / "assets" / "block-banners"
 SPRITE_DIR = ROOT / "assets" / "sprites"
-# Banners are 576x144 PNGs of about 120 KB; as WebP at this quality, about 26 KB.
-BANNER_QUALITY = 85
 DOWNLOAD_WORKERS = 4
 
 # Tabs shown on the site, left to right. Everything after JCD-HM is internal.
@@ -126,12 +125,10 @@ def block_palette(cd, variant, palettes):
     return palettes[variant.split()[1]]
 
 
-def save_banner(image):
-    """Saves a banner as WebP, named after the sheet's image so an unchanged one keeps its name."""
-    data = image._data()
-    name = hashlib.md5(data).hexdigest()[:12] + ".webp"
-    Image.open(io.BytesIO(data)).save(BANNER_DIR / name, "WEBP", quality=BANNER_QUALITY)
-    return name
+def block_banner(tab, position):
+    """File name of a block's banner in assets/block-banners/, or "" when it has none."""
+    name = f"{tab}-{position}.webp"
+    return name if (BANNER_DIR / name).exists() else ""
 
 
 def download_image(url):
@@ -178,24 +175,20 @@ def build_blocks(formula_book, value_book, tabs, config, palettes):
     rows = []
     for tab in tabs:
         styled, values = formula_book[tab], value_book[tab]
-        banners = defaultdict(list)
-        for image in styled._images:
-            if image.anchor._from.row == 0:
-                banners[image.anchor._from.col].append(image)
         starts = [c for c in range(1, styled.max_column + 1) if values.cell(2, c).value == "RANK"]
         for position, start in enumerate(starts):
             cd, boss, variant = block_keys(tab, position, config)
             palette = block_palette(cd, variant, palettes)
             head = fill_hex(styled.cell(2, start))
-            found = [image for col in range(start - 1, start + 8) for image in banners[col]]
+            banner = block_banner(tab, position + 1)
             label = clean(values.cell(1, start).value)
             if not re.search(r"[A-Za-z]", label):  # "----->" filler used by the sheet
                 label = ""
             rows.append([
                 tab, position + 1, cd, boss, variant,
-                save_banner(found[0]) if found else "",
+                banner,
                 label,
-                clean(values.cell(1, start + 8).value) if found else "",
+                clean(values.cell(1, start + 8).value) if banner else "",
                 1 if clean(values.cell(2, start + 8).value) else 0,
                 head, readable_text(head), palette["odd"], palette["even"],
                 font_hex(styled.cell(1, start)),
@@ -288,9 +281,6 @@ def main():
     }
 
     DATA_DIR.mkdir(exist_ok=True)
-    BANNER_DIR.mkdir(parents=True, exist_ok=True)
-    for old in BANNER_DIR.iterdir():
-        old.unlink()
 
     print("Writing data...")
     write_csv("fights.csv", ["sheet", "subtitle"], load_fights(value_book, tabs))
@@ -341,8 +331,6 @@ def main():
         [[code, name, paths.get(icon, icon), paths.get(sprite, sprite)] for code, name, icon, sprite in characters],
     )
     write_csv("icons.csv", ["icon", "url"], [[icon, paths[url]] for icon, url in icons])
-
-    print(f"  assets/banners: {sum(1 for _ in BANNER_DIR.iterdir())} files")
 
 
 if __name__ == "__main__":

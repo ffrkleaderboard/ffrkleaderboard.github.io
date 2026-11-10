@@ -12,8 +12,8 @@ LICH,10,CD,Paradox Lich,Magical Earth Weak,,,,0,#996633,#ffffff,#f7ecda,#f2e0cc,
 LICH,11,CD,Paradox Lich,Physical Lightning Weak,,,,0,#7f7f00,#ffffff,#ffffe6,#ffffcc,#00ffff
 LICH,12,CD,Paradox Lich,Magical Lightning Weak,,,,0,#7f7f00,#ffffff,#ffffe6,#ffffcc,#00ffff
 LICH,13,CD,Paradox Lich,Physical Dark Weak,,,,0,#663399,#ffffff,#ecf0ff,#e9e0ff,#00ffff
-LICH,14,CD,Paradox Lich,Magical Dark Weak,dfc2fe6178df.webp,,⏴⋅OCT⋅2026,1,#663399,#ffffff,#ecf0ff,#e9e0ff,#b366ff
-LICH,15,CD,Paradox Lich,Physical Holy Weak,5275186f4a75.webp,,⏴⋅SEP⋅2026,1,#66cc99,#000000,#e6fff2,#ccffe6,#00ffff
+LICH,14,CD,Paradox Lich,Magical Dark Weak,LICH-14.webp,,⏴⋅OCT⋅2026,1,#663399,#ffffff,#ecf0ff,#e9e0ff,#b366ff
+LICH,15,CD,Paradox Lich,Physical Holy Weak,LICH-15.webp,,⏴⋅SEP⋅2026,1,#66cc99,#000000,#e6fff2,#ccffe6,#00ffff
 LICH,16,CD,Paradox Lich,Magical Holy Weak,,,,0,#66cc99,#000000,#e6fff2,#ccffe6,#00ffff
 LICH,17,CD,Paradox Lich,Physical Poison Weak,,,,0,#00331a,#ffffff,#e6f5ec,#cceee0,#00ffff
 LICH,18,CD,Paradox Lich,Magical Poison Weak,,,,0,#00331a,#ffffff,#e6f5ec,#cceee0,#00ffff
@@ -30,248 +30,248 @@ LICH-HM,10,CD,Paradox Lich (HM),Magical Earth Weak,,,,0,#996633,#ffffff,#f7ecda,
 LICH-HM,11,CD,Paradox Lich (HM),Physical Lightning Weak,,,,0,#7f7f00,#ffffff,#ffffe6,#ffffcc,#b7b7b7
 LICH-HM,12,CD,Paradox Lich (HM),Magical Lightning Weak,,,,0,#7f7f00,#ffffff,#ffffe6,#ffffcc,#00ffff
 LICH-HM,13,CD,Paradox Lich (HM),Physical Dark Weak,,,,0,#663399,#ffffff,#ecf0ff,#e9e0ff,#b7b7b7
-LICH-HM,14,CD,Paradox Lich (HM),Magical Dark Weak,ce8fb0468488.webp,,⏴⋅OCT⋅2026,1,#663399,#ffffff,#ecf0ff,#e9e0ff,#b366ff
-LICH-HM,15,CD,Paradox Lich (HM),Physical Holy Weak,14cd0e19f0a3.webp,,⏴⋅SEP⋅2026,1,#66cc99,#000000,#e6fff2,#ccffe6,#b7b7b7
+LICH-HM,14,CD,Paradox Lich (HM),Magical Dark Weak,LICH-HM-14.webp,,⏴⋅OCT⋅2026,1,#663399,#ffffff,#ecf0ff,#e9e0ff,#b366ff
+LICH-HM,15,CD,Paradox Lich (HM),Physical Holy Weak,LICH-HM-15.webp,,⏴⋅SEP⋅2026,1,#66cc99,#000000,#e6fff2,#ccffe6,#b7b7b7
 LICH-HM,16,CD,Paradox Lich (HM),Magical Holy Weak,,,,0,#66cc99,#000000,#e6fff2,#ccffe6,#b7b7b7
 LICH-HM,17,CD,Paradox Lich (HM),Physical Poison Weak,,,,0,#00331a,#ffffff,#e6f5ec,#cceee0,#00ff00
 LICH-HM,18,CD,Paradox Lich (HM),Magical Poison Weak,,,,0,#00331a,#ffffff,#e6f5ec,#cceee0,#00ff00
-MAGUS,1,ECD2,Magus Sisters,Physical Water Weak,83cd2b7cb466.webp,,⏴⋅AUG⋅2026,1,#00007f,#ffffff,#e6f0ff,#cce0ff,#00ffff
-MAGUS,2,ECD2,Magus Sisters,Magical Water Weak,7cd1fd17b1e1.webp,,⏴⋅AUG⋅2026,1,#00007f,#ffffff,#e6f0ff,#cce0ff,#00ffff
-MAGUS,3,ECD2,Magus Sisters,Physical Fire Weak,c13af1028d21.webp,,⏴⋅SEP⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#666666
-MAGUS,4,ECD2,Magus Sisters,Magical Fire Weak,d4849caa4ae1.webp,,⏴⋅SEP⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#666666
-MAGUS,5,ECD2,Magus Sisters,Physical Ice Weak,dc1dacf2c836.webp,,⏴⋅NOV⋅2025,1,#33669a,#ffffff,#e6f3ff,#d6ebff,#00ffff
-MAGUS,6,ECD2,Magus Sisters,Magical Ice Weak,1c5908e1f3d4.webp,,⏴⋅NOV⋅2025,1,#33669a,#ffffff,#e6f3ff,#d6ebff,#00ffff
-MAGUS,7,ECD2,Magus Sisters,Physical Wind Weak,95db52816fd6.webp,,⏴⋅DEC⋅2025,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#00ffff
-MAGUS,8,ECD2,Magus Sisters,Magical Wind Weak,7996e8682fdf.webp,,⏴⋅DEC⋅2025,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#00ffff
-MAGUS,9,ECD2,Magus Sisters,Physical Earth Weak,6eef54ba1605.webp,,⏴⋅MAR⋅2026,1,#996633,#ffffff,#f7ecda,#f2e0cc,#00ffff
-MAGUS,10,ECD2,Magus Sisters,Magical Earth Weak,f4ec3b86792a.webp,,⏴⋅MAR⋅2026,1,#996633,#ffffff,#f7ecda,#f2e0cc,#00ffff
-MAGUS,11,ECD2,Magus Sisters,Physical Lightning Weak,98caccc02d25.webp,,⏴⋅JUN⋅2026,1,#7f7f00,#ffffff,#ffffe6,#ffffcc,#00ffff
-MAGUS,12,ECD2,Magus Sisters,Magical Lightning Weak,3f32baa8da01.webp,,⏴⋅JUN⋅2026,1,#7f7f00,#ffffff,#ffffe6,#ffffcc,#00ffff
-MAGUS,13,ECD2,Magus Sisters,Physical Dark Weak,0fbb09bc7dc3.webp,,⏴⋅DEC⋅2025,1,#663399,#ffffff,#ecf0ff,#e9e0ff,#00ffff
-MAGUS,14,ECD2,Magus Sisters,Magical Dark Weak,046657bcb6ad.webp,,⏴⋅DEC⋅2025,1,#663399,#ffffff,#ecf0ff,#e9e0ff,#00ffff
-MAGUS,15,ECD2,Magus Sisters,Physical Holy Weak,4aa8b4575d6c.webp,,⏴⋅OCT⋅2025,1,#66cc99,#000000,#e6fff2,#ccffe6,#00ffff
-MAGUS,16,ECD2,Magus Sisters,Magical Holy Weak,e1d7332fba64.webp,,⏴⋅OCT⋅2025,1,#66cc99,#000000,#e6fff2,#ccffe6,#00ffff
-MAGUS,17,ECD2,Magus Sisters,Physical Poison Weak,ea94dfb80b4f.webp,,⏴⋅MAR⋅2026,1,#00331a,#ffffff,#e6f5ec,#cceee0,#00ffff
-MAGUS,18,ECD2,Magus Sisters,Magical Poison Weak,45d95fb03d8e.webp,,⏴⋅MAR⋅2026,1,#00331a,#ffffff,#e6f5ec,#cceee0,#00ffff
-MAGUS-HM,1,ECD2,Magus Sisters (HM),Physical Water Weak,3b72ef3b8256.webp,,⏴⋅AUG⋅2026,1,#00007f,#ffffff,#e6f0ff,#cce0ff,#b7b7b7
-MAGUS-HM,2,ECD2,Magus Sisters (HM),Magical Water Weak,7eaf3f657bb4.webp,,⏴⋅AUG⋅2026,1,#00007f,#ffffff,#e6f0ff,#cce0ff,#b7b7b7
-MAGUS-HM,3,ECD2,Magus Sisters (HM),Physical Fire Weak,7db4526f7848.webp,,⏴⋅SEP⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#b7b7b7
-MAGUS-HM,4,ECD2,Magus Sisters (HM),Magical Fire Weak,3ca83821bd7e.webp,,⏴⋅SEP⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#b7b7b7
-MAGUS-HM,5,ECD2,Magus Sisters (HM),Physical Ice Weak,87ad26e71475.webp,,⏴⋅NOV⋅2025,1,#33669a,#ffffff,#e6f3ff,#d6ebff,#b7b7b7
-MAGUS-HM,6,ECD2,Magus Sisters (HM),Magical Ice Weak,a4f11a27f20f.webp,,⏴⋅NOV⋅2025,1,#33669a,#ffffff,#e6f3ff,#d6ebff,#b7b7b7
-MAGUS-HM,7,ECD2,Magus Sisters (HM),Physical Wind Weak,ce83c4a03029.webp,,⏴⋅DEC⋅2025,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
-MAGUS-HM,8,ECD2,Magus Sisters (HM),Magical Wind Weak,85153cb05ce9.webp,,⏴⋅DEC⋅2025,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
-MAGUS-HM,9,ECD2,Magus Sisters (HM),Physical Earth Weak,b8ece2eefabd.webp,,⏴⋅MAR⋅2026,1,#996633,#ffffff,#f7ecda,#f2e0cc,#b7b7b7
-MAGUS-HM,10,ECD2,Magus Sisters (HM),Magical Earth Weak,a146c593066c.webp,,⏴⋅MAR⋅2026,1,#996633,#ffffff,#f7ecda,#f2e0cc,#b7b7b7
-MAGUS-HM,11,ECD2,Magus Sisters (HM),Physical Lightning Weak,3edcb6bfcfe7.webp,,⏴⋅JUN⋅2026,1,#7f7f00,#ffffff,#ffffe6,#ffffcc,#b7b7b7
-MAGUS-HM,12,ECD2,Magus Sisters (HM),Magical Lightning Weak,59bef389ebb9.webp,,⏴⋅JUN⋅2026,1,#7f7f00,#ffffff,#ffffe6,#ffffcc,#b7b7b7
-MAGUS-HM,13,ECD2,Magus Sisters (HM),Physical Dark Weak,61c976d3fbac.webp,,⏴⋅DEC⋅2025,1,#663399,#ffffff,#ecf0ff,#e9e0ff,#b7b7b7
-MAGUS-HM,14,ECD2,Magus Sisters (HM),Magical Dark Weak,72f8ceece3bb.webp,,⏴⋅DEC⋅2025,1,#663399,#ffffff,#ecf0ff,#e9e0ff,#b7b7b7
-MAGUS-HM,15,ECD2,Magus Sisters (HM),Physical Holy Weak,9e3aadf283ae.webp,,⏴⋅OCT⋅2025,1,#66cc99,#000000,#e6fff2,#ccffe6,#b7b7b7
-MAGUS-HM,16,ECD2,Magus Sisters (HM),Magical Holy Weak,ba4ac3943fcc.webp,,⏴⋅OCT⋅2025,1,#66cc99,#000000,#e6fff2,#ccffe6,#b7b7b7
-MAGUS-HM,17,ECD2,Magus Sisters (HM),Physical Poison Weak,93e8292c55af.webp,,⏴⋅MAR⋅2026,1,#00331a,#ffffff,#e6f5ec,#cceee0,#00ff00
-MAGUS-HM,18,ECD2,Magus Sisters (HM),Magical Poison Weak,2fd4425234b5.webp,,⏴⋅MAR⋅2026,1,#00331a,#ffffff,#e6f5ec,#cceee0,#00ff00
-BZT0,1,ECD,Eidolon Bahamut ZERO,Physical Water Weak,3e6492530158.webp,,⏴⋅JUL⋅2025,1,#00007f,#ffffff,#e6f0ff,#cce0ff,#666666
-BZT0,2,ECD,Eidolon Bahamut ZERO,Magical Water Weak,8a90c0110d8e.webp,,⏴⋅JUL⋅2025,1,#00007f,#ffffff,#e6f0ff,#cce0ff,#666666
-BZT0,3,ECD,Eidolon Bahamut ZERO,Physical Fire Weak,6e6e534bff12.webp,,⏴⋅JAN⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#666666
-BZT0,4,ECD,Eidolon Bahamut ZERO,Magical Fire Weak,67eb7b1f4f67.webp,,⏴⋅JAN⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#666666
-BZT0,5,ECD,Eidolon Bahamut ZERO,Physical Ice Weak,1bfbe3b97804.webp,,⏴⋅MAR⋅2025,1,#33669a,#ffffff,#e6f3ff,#d6ebff,#666666
-BZT0,6,ECD,Eidolon Bahamut ZERO,Magical Ice Weak,afa222ea6a05.webp,,⏴⋅MAR⋅2025,1,#33669a,#ffffff,#e6f3ff,#d6ebff,#666666
-BZT0,7,ECD,Eidolon Bahamut ZERO,Physical Wind Weak,b2a6540f5ae3.webp,,⏴⋅APR⋅2025,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#666666
-BZT0,8,ECD,Eidolon Bahamut ZERO,Magical Wind Weak,1fac3f146ca2.webp,,⏴⋅APR⋅2025,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#666666
-BZT0,9,ECD,Eidolon Bahamut ZERO,Physical Earth Weak,1c74b3648117.webp,,⏴⋅MAY⋅2025,1,#996633,#ffffff,#f7ecda,#f2e0cc,#666666
-BZT0,10,ECD,Eidolon Bahamut ZERO,Magical Earth Weak,35e39afd0210.webp,,⏴⋅MAY⋅2025,1,#996633,#ffffff,#f7ecda,#f2e0cc,#666666
-BZT0,11,ECD,Eidolon Bahamut ZERO,Physical Lightning Weak,b346918f169a.webp,,⏴⋅JUN⋅2025,1,#7f7f00,#ffffff,#ffffe6,#ffffcc,#666666
-BZT0,12,ECD,Eidolon Bahamut ZERO,Magical Lightning Weak,7b61effa4b2f.webp,,⏴⋅JUN⋅2025,1,#7f7f00,#ffffff,#ffffe6,#ffffcc,#666666
-BZT0,13,ECD,Eidolon Bahamut ZERO,Physical Dark Weak,1153d13f7112.webp,,⏴⋅DEC⋅2024,1,#663399,#ffffff,#ecf0ff,#e9e0ff,#666666
-BZT0,14,ECD,Eidolon Bahamut ZERO,Magical Dark Weak,4b6713bb13ca.webp,,⏴⋅DEC⋅2024,1,#663399,#ffffff,#ecf0ff,#e9e0ff,#666666
-BZT0,15,ECD,Eidolon Bahamut ZERO,Physical Holy Weak,e97775fc1388.webp,,⏴⋅FEB⋅2025,1,#66cc99,#000000,#e6fff2,#ccffe6,#666666
-BZT0,16,ECD,Eidolon Bahamut ZERO,Magical Holy Weak,59b726074c87.webp,,⏴⋅FEB⋅2025,1,#66cc99,#000000,#e6fff2,#ccffe6,#666666
-BZT0,17,ECD,Eidolon Bahamut ZERO,Physical Poison Weak,3e2d9e3cef67.webp,,⏴⋅AUG⋅2025,1,#00331a,#ffffff,#e6f5ec,#cceee0,#00ff00
-BZT0,18,ECD,Eidolon Bahamut ZERO,Magical Poison Weak,2bcf07a01f91.webp,,⏴⋅AUG⋅2025,1,#00331a,#ffffff,#e6f5ec,#cceee0,#00ff00
-BZT0-HM,1,ECD,Eidolon Bahamut ZERO (HM),Physical Water Weak,23ad830ec41f.webp,,⏴⋅JUL⋅2025,1,#00007f,#ffffff,#e6f0ff,#cce0ff,#b7b7b7
-BZT0-HM,2,ECD,Eidolon Bahamut ZERO (HM),Magical Water Weak,d3f29faf3c74.webp,,⏴⋅JUL⋅2025,1,#00007f,#ffffff,#e6f0ff,#cce0ff,#b7b7b7
-BZT0-HM,3,ECD,Eidolon Bahamut ZERO (HM),Physical Fire Weak,68957fc1bd2f.webp,,⏴⋅JAN⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#b7b7b7
-BZT0-HM,4,ECD,Eidolon Bahamut ZERO (HM),Magical Fire Weak,e1cd5fdfdb8b.webp,,⏴⋅JAN⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#b7b7b7
-BZT0-HM,5,ECD,Eidolon Bahamut ZERO (HM),Physical Ice Weak,8aaa5df91911.webp,,⏴⋅MAR⋅2025,1,#33669a,#ffffff,#e6f3ff,#d6ebff,#b7b7b7
-BZT0-HM,6,ECD,Eidolon Bahamut ZERO (HM),Magical Ice Weak,0cd68113c228.webp,,⏴⋅MAR⋅2025,1,#33669a,#ffffff,#e6f3ff,#d6ebff,#b7b7b7
-BZT0-HM,7,ECD,Eidolon Bahamut ZERO (HM),Physical Wind Weak,9cab66c60e20.webp,,⏴⋅APR⋅2025,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
-BZT0-HM,8,ECD,Eidolon Bahamut ZERO (HM),Magical Wind Weak,151d5a9e6803.webp,,⏴⋅APR⋅2025,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
-BZT0-HM,9,ECD,Eidolon Bahamut ZERO (HM),Physical Earth Weak,13a06693ece0.webp,,⏴⋅MAY⋅2025,1,#996633,#ffffff,#f7ecda,#f2e0cc,#b7b7b7
-BZT0-HM,10,ECD,Eidolon Bahamut ZERO (HM),Magical Earth Weak,e77e5b76f69c.webp,,⏴⋅MAY⋅2025,1,#996633,#ffffff,#f7ecda,#f2e0cc,#b7b7b7
-BZT0-HM,11,ECD,Eidolon Bahamut ZERO (HM),Physical Lightning Weak,c65421b7090d.webp,,⏴⋅JUN⋅2025,1,#7f7f00,#ffffff,#ffffe6,#ffffcc,#b7b7b7
-BZT0-HM,12,ECD,Eidolon Bahamut ZERO (HM),Magical Lightning Weak,7d4cd0c4878d.webp,,⏴⋅JUN⋅2025,1,#7f7f00,#ffffff,#ffffe6,#ffffcc,#b7b7b7
-BZT0-HM,13,ECD,Eidolon Bahamut ZERO (HM),Physical Dark Weak,a8a16ff7a68f.webp,,⏴⋅DEC⋅2024,1,#663399,#ffffff,#ecf0ff,#e9e0ff,#b7b7b7
-BZT0-HM,14,ECD,Eidolon Bahamut ZERO (HM),Magical Dark Weak,8c9368b4831d.webp,,⏴⋅DEC⋅2024,1,#663399,#ffffff,#ecf0ff,#e9e0ff,#b7b7b7
-BZT0-HM,15,ECD,Eidolon Bahamut ZERO (HM),Physical Holy Weak,8acd5dad014e.webp,,⏴⋅FEB⋅2025,1,#66cc99,#000000,#e6fff2,#ccffe6,#b7b7b7
-BZT0-HM,16,ECD,Eidolon Bahamut ZERO (HM),Magical Holy Weak,5e62f5cfba4b.webp,,⏴⋅FEB⋅2025,1,#66cc99,#000000,#e6fff2,#ccffe6,#b7b7b7
-BZT0-HM,17,ECD,Eidolon Bahamut ZERO (HM),Physical Poison Weak,4bc702edda53.webp,,⏴⋅AUG⋅2025,1,#00331a,#ffffff,#e6f5ec,#cceee0,#00ff00
-BZT0-HM,18,ECD,Eidolon Bahamut ZERO (HM),Magical Poison Weak,8c69c826f22f.webp,,⏴⋅AUG⋅2025,1,#00331a,#ffffff,#e6f5ec,#cceee0,#00ff00
-ARK,1,ECD,Ark,Physical Water Weak,5932446b3867.webp,,⏴⋅OCT⋅2024,1,#00007f,#ffffff,#e6f0ff,#cce0ff,#666666
-ARK,2,ECD,Ark,Magical Water Weak,8a53068d5a6f.webp,,⏴⋅OCT⋅2024,1,#00007f,#ffffff,#e6f0ff,#cce0ff,#666666
-ARK,3,ECD,Ark,Physical Fire Weak,0480f0da13ab.webp,,⏴⋅MAR⋅2024,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#666666
-ARK,4,ECD,Ark,Magical Fire Weak,58347fee2ec9.webp,,⏴⋅MAR⋅2024,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#666666
-ARK,5,ECD,Ark,Physical Ice Weak,ec12efeee7d1.webp,,⏴⋅APR⋅2024,1,#33669a,#ffffff,#e6f3ff,#d6ebff,#666666
-ARK,6,ECD,Ark,Magical Ice Weak,8ce86b200640.webp,,⏴⋅APR⋅2024,1,#33669a,#ffffff,#e6f3ff,#d6ebff,#666666
-ARK,7,ECD,Ark,Physical Wind Weak,b61c4e749812.webp,,⏴⋅JUN⋅2024,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#666666
-ARK,8,ECD,Ark,Magical Wind Weak,8946b476d502.webp,,⏴⋅JUN⋅2024,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#666666
-ARK,9,ECD,Ark,Physical Earth Weak,f42c43a468f6.webp,,⏴⋅JUL⋅2024,1,#996633,#ffffff,#f7ecda,#f2e0cc,#666666
-ARK,10,ECD,Ark,Magical Earth Weak,9d595a6918d9.webp,,⏴⋅JUL⋅2024,1,#996633,#ffffff,#f7ecda,#f2e0cc,#666666
-ARK,11,ECD,Ark,Physical Lightning Weak,31be5e0b2ed6.webp,,⏴⋅AUG⋅2024,1,#7f7f00,#ffffff,#ffffe6,#ffffcc,#666666
-ARK,12,ECD,Ark,Magical Lightning Weak,318803d57df3.webp,,⏴⋅AUG⋅2024,1,#7f7f00,#ffffff,#ffffe6,#ffffcc,#666666
-ARK,13,ECD,Ark,Physical Dark Weak,e2da6b82e24a.webp,,⏴⋅MAY⋅2024,1,#663399,#ffffff,#ecf0ff,#e9e0ff,#666666
-ARK,14,ECD,Ark,Magical Dark Weak,58ecc2ef8690.webp,,⏴⋅MAY⋅2024,1,#663399,#ffffff,#ecf0ff,#e9e0ff,#666666
-ARK,15,ECD,Ark,Physical Holy Weak,549eb27bdbda.webp,,⏴⋅NOV⋅2024,1,#66cc99,#000000,#e6fff2,#ccffe6,#666666
-ARK,16,ECD,Ark,Magical Holy Weak,1f24ffee6d28.webp,,⏴⋅NOV⋅2024,1,#66cc99,#000000,#e6fff2,#ccffe6,#666666
-ARK,17,ECD,Ark,Physical Poison Weak,0af068ff1bf6.webp,,⏴⋅NOV⋅2024,1,#00331a,#ffffff,#e6f5ec,#cceee0,#00ff00
-ARK,18,ECD,Ark,Magical Poison Weak,258cf4396634.webp,,⏴⋅NOV⋅2024,1,#00331a,#ffffff,#e6f5ec,#cceee0,#00ff00
-ARK-HM,1,ECD,Ark (HM),Physical Water Weak,73f62fc61215.webp,,⏴⋅OCT⋅2024,1,#00007f,#ffffff,#e6f0ff,#cce0ff,#b7b7b7
-ARK-HM,2,ECD,Ark (HM),Magical Water Weak,0c7166f9f384.webp,,⏴⋅OCT⋅2024,1,#00007f,#ffffff,#e6f0ff,#cce0ff,#b7b7b7
-ARK-HM,3,ECD,Ark (HM),Physical Fire Weak,8c45b71bef10.webp,,⏴⋅MAR⋅2024,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#b7b7b7
-ARK-HM,4,ECD,Ark (HM),Magical Fire Weak,4d420ebbd0fa.webp,,⏴⋅MAR⋅2024,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#b7b7b7
-ARK-HM,5,ECD,Ark (HM),Physical Ice Weak,96a68920fdc4.webp,,⏴⋅APR⋅2024,1,#33669a,#ffffff,#e6f3ff,#d6ebff,#b7b7b7
-ARK-HM,6,ECD,Ark (HM),Magical Ice Weak,911269c99e5f.webp,,⏴⋅APR⋅2024,1,#33669a,#ffffff,#e6f3ff,#d6ebff,#b7b7b7
-ARK-HM,7,ECD,Ark (HM),Physical Wind Weak,5cebfb3ee223.webp,,⏴⋅JUN⋅2024,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
-ARK-HM,8,ECD,Ark (HM),Magical Wind Weak,001215f03b49.webp,,⏴⋅JUN⋅2024,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
-ARK-HM,9,ECD,Ark (HM),Physical Earth Weak,a25ee88cbcf0.webp,,⏴⋅JUL⋅2024,1,#996633,#ffffff,#f7ecda,#f2e0cc,#b7b7b7
-ARK-HM,10,ECD,Ark (HM),Magical Earth Weak,530d9561cb8c.webp,,⏴⋅JUL⋅2024,1,#996633,#ffffff,#f7ecda,#f2e0cc,#b7b7b7
-ARK-HM,11,ECD,Ark (HM),Physical Lightning Weak,169b96810a29.webp,,⏴⋅AUG⋅2024,1,#7f7f00,#ffffff,#ffffe6,#ffffcc,#b7b7b7
-ARK-HM,12,ECD,Ark (HM),Magical Lightning Weak,de909126bc14.webp,,⏴⋅AUG⋅2024,1,#7f7f00,#ffffff,#ffffe6,#ffffcc,#b7b7b7
-ARK-HM,13,ECD,Ark (HM),Physical Dark Weak,963c238c5f34.webp,,⏴⋅MAY⋅2024,1,#663399,#ffffff,#ecf0ff,#e9e0ff,#b7b7b7
-ARK-HM,14,ECD,Ark (HM),Magical Dark Weak,1180ca803215.webp,,⏴⋅MAY⋅2024,1,#663399,#ffffff,#ecf0ff,#e9e0ff,#b7b7b7
-ARK-HM,15,ECD,Ark (HM),Physical Holy Weak,e700cd5c7701.webp,,⏴⋅NOV⋅2024,1,#66cc99,#000000,#e6fff2,#ccffe6,#b7b7b7
-ARK-HM,16,ECD,Ark (HM),Magical Holy Weak,8d4b13d961cf.webp,,⏴⋅NOV⋅2024,1,#66cc99,#000000,#e6fff2,#ccffe6,#b7b7b7
-ARK-HM,17,ECD,Ark (HM),Physical Poison Weak,a9765846ca5b.webp,,⏴⋅NOV⋅2024,1,#00331a,#ffffff,#e6f5ec,#cceee0,#00ff00
-ARK-HM,18,ECD,Ark (HM),Magical Poison Weak,f1015f68739a.webp,,⏴⋅NOV⋅2024,1,#00331a,#ffffff,#e6f5ec,#cceee0,#00ff00
+MAGUS,1,ECD2,Magus Sisters,Physical Water Weak,MAGUS-1.webp,,⏴⋅AUG⋅2026,1,#00007f,#ffffff,#e6f0ff,#cce0ff,#00ffff
+MAGUS,2,ECD2,Magus Sisters,Magical Water Weak,MAGUS-2.webp,,⏴⋅AUG⋅2026,1,#00007f,#ffffff,#e6f0ff,#cce0ff,#00ffff
+MAGUS,3,ECD2,Magus Sisters,Physical Fire Weak,MAGUS-3.webp,,⏴⋅SEP⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#666666
+MAGUS,4,ECD2,Magus Sisters,Magical Fire Weak,MAGUS-4.webp,,⏴⋅SEP⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#666666
+MAGUS,5,ECD2,Magus Sisters,Physical Ice Weak,MAGUS-5.webp,,⏴⋅NOV⋅2025,1,#33669a,#ffffff,#e6f3ff,#d6ebff,#00ffff
+MAGUS,6,ECD2,Magus Sisters,Magical Ice Weak,MAGUS-6.webp,,⏴⋅NOV⋅2025,1,#33669a,#ffffff,#e6f3ff,#d6ebff,#00ffff
+MAGUS,7,ECD2,Magus Sisters,Physical Wind Weak,MAGUS-7.webp,,⏴⋅DEC⋅2025,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#00ffff
+MAGUS,8,ECD2,Magus Sisters,Magical Wind Weak,MAGUS-8.webp,,⏴⋅DEC⋅2025,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#00ffff
+MAGUS,9,ECD2,Magus Sisters,Physical Earth Weak,MAGUS-9.webp,,⏴⋅MAR⋅2026,1,#996633,#ffffff,#f7ecda,#f2e0cc,#00ffff
+MAGUS,10,ECD2,Magus Sisters,Magical Earth Weak,MAGUS-10.webp,,⏴⋅MAR⋅2026,1,#996633,#ffffff,#f7ecda,#f2e0cc,#00ffff
+MAGUS,11,ECD2,Magus Sisters,Physical Lightning Weak,MAGUS-11.webp,,⏴⋅JUN⋅2026,1,#7f7f00,#ffffff,#ffffe6,#ffffcc,#00ffff
+MAGUS,12,ECD2,Magus Sisters,Magical Lightning Weak,MAGUS-12.webp,,⏴⋅JUN⋅2026,1,#7f7f00,#ffffff,#ffffe6,#ffffcc,#00ffff
+MAGUS,13,ECD2,Magus Sisters,Physical Dark Weak,MAGUS-13.webp,,⏴⋅DEC⋅2025,1,#663399,#ffffff,#ecf0ff,#e9e0ff,#00ffff
+MAGUS,14,ECD2,Magus Sisters,Magical Dark Weak,MAGUS-14.webp,,⏴⋅DEC⋅2025,1,#663399,#ffffff,#ecf0ff,#e9e0ff,#00ffff
+MAGUS,15,ECD2,Magus Sisters,Physical Holy Weak,MAGUS-15.webp,,⏴⋅OCT⋅2025,1,#66cc99,#000000,#e6fff2,#ccffe6,#00ffff
+MAGUS,16,ECD2,Magus Sisters,Magical Holy Weak,MAGUS-16.webp,,⏴⋅OCT⋅2025,1,#66cc99,#000000,#e6fff2,#ccffe6,#00ffff
+MAGUS,17,ECD2,Magus Sisters,Physical Poison Weak,MAGUS-17.webp,,⏴⋅MAR⋅2026,1,#00331a,#ffffff,#e6f5ec,#cceee0,#00ffff
+MAGUS,18,ECD2,Magus Sisters,Magical Poison Weak,MAGUS-18.webp,,⏴⋅MAR⋅2026,1,#00331a,#ffffff,#e6f5ec,#cceee0,#00ffff
+MAGUS-HM,1,ECD2,Magus Sisters (HM),Physical Water Weak,MAGUS-HM-1.webp,,⏴⋅AUG⋅2026,1,#00007f,#ffffff,#e6f0ff,#cce0ff,#b7b7b7
+MAGUS-HM,2,ECD2,Magus Sisters (HM),Magical Water Weak,MAGUS-HM-2.webp,,⏴⋅AUG⋅2026,1,#00007f,#ffffff,#e6f0ff,#cce0ff,#b7b7b7
+MAGUS-HM,3,ECD2,Magus Sisters (HM),Physical Fire Weak,MAGUS-HM-3.webp,,⏴⋅SEP⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#b7b7b7
+MAGUS-HM,4,ECD2,Magus Sisters (HM),Magical Fire Weak,MAGUS-HM-4.webp,,⏴⋅SEP⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#b7b7b7
+MAGUS-HM,5,ECD2,Magus Sisters (HM),Physical Ice Weak,MAGUS-HM-5.webp,,⏴⋅NOV⋅2025,1,#33669a,#ffffff,#e6f3ff,#d6ebff,#b7b7b7
+MAGUS-HM,6,ECD2,Magus Sisters (HM),Magical Ice Weak,MAGUS-HM-6.webp,,⏴⋅NOV⋅2025,1,#33669a,#ffffff,#e6f3ff,#d6ebff,#b7b7b7
+MAGUS-HM,7,ECD2,Magus Sisters (HM),Physical Wind Weak,MAGUS-HM-7.webp,,⏴⋅DEC⋅2025,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
+MAGUS-HM,8,ECD2,Magus Sisters (HM),Magical Wind Weak,MAGUS-HM-8.webp,,⏴⋅DEC⋅2025,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
+MAGUS-HM,9,ECD2,Magus Sisters (HM),Physical Earth Weak,MAGUS-HM-9.webp,,⏴⋅MAR⋅2026,1,#996633,#ffffff,#f7ecda,#f2e0cc,#b7b7b7
+MAGUS-HM,10,ECD2,Magus Sisters (HM),Magical Earth Weak,MAGUS-HM-10.webp,,⏴⋅MAR⋅2026,1,#996633,#ffffff,#f7ecda,#f2e0cc,#b7b7b7
+MAGUS-HM,11,ECD2,Magus Sisters (HM),Physical Lightning Weak,MAGUS-HM-11.webp,,⏴⋅JUN⋅2026,1,#7f7f00,#ffffff,#ffffe6,#ffffcc,#b7b7b7
+MAGUS-HM,12,ECD2,Magus Sisters (HM),Magical Lightning Weak,MAGUS-HM-12.webp,,⏴⋅JUN⋅2026,1,#7f7f00,#ffffff,#ffffe6,#ffffcc,#b7b7b7
+MAGUS-HM,13,ECD2,Magus Sisters (HM),Physical Dark Weak,MAGUS-HM-13.webp,,⏴⋅DEC⋅2025,1,#663399,#ffffff,#ecf0ff,#e9e0ff,#b7b7b7
+MAGUS-HM,14,ECD2,Magus Sisters (HM),Magical Dark Weak,MAGUS-HM-14.webp,,⏴⋅DEC⋅2025,1,#663399,#ffffff,#ecf0ff,#e9e0ff,#b7b7b7
+MAGUS-HM,15,ECD2,Magus Sisters (HM),Physical Holy Weak,MAGUS-HM-15.webp,,⏴⋅OCT⋅2025,1,#66cc99,#000000,#e6fff2,#ccffe6,#b7b7b7
+MAGUS-HM,16,ECD2,Magus Sisters (HM),Magical Holy Weak,MAGUS-HM-16.webp,,⏴⋅OCT⋅2025,1,#66cc99,#000000,#e6fff2,#ccffe6,#b7b7b7
+MAGUS-HM,17,ECD2,Magus Sisters (HM),Physical Poison Weak,MAGUS-HM-17.webp,,⏴⋅MAR⋅2026,1,#00331a,#ffffff,#e6f5ec,#cceee0,#00ff00
+MAGUS-HM,18,ECD2,Magus Sisters (HM),Magical Poison Weak,MAGUS-HM-18.webp,,⏴⋅MAR⋅2026,1,#00331a,#ffffff,#e6f5ec,#cceee0,#00ff00
+BZT0,1,ECD,Eidolon Bahamut ZERO,Physical Water Weak,BZT0-1.webp,,⏴⋅JUL⋅2025,1,#00007f,#ffffff,#e6f0ff,#cce0ff,#666666
+BZT0,2,ECD,Eidolon Bahamut ZERO,Magical Water Weak,BZT0-2.webp,,⏴⋅JUL⋅2025,1,#00007f,#ffffff,#e6f0ff,#cce0ff,#666666
+BZT0,3,ECD,Eidolon Bahamut ZERO,Physical Fire Weak,BZT0-3.webp,,⏴⋅JAN⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#666666
+BZT0,4,ECD,Eidolon Bahamut ZERO,Magical Fire Weak,BZT0-4.webp,,⏴⋅JAN⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#666666
+BZT0,5,ECD,Eidolon Bahamut ZERO,Physical Ice Weak,BZT0-5.webp,,⏴⋅MAR⋅2025,1,#33669a,#ffffff,#e6f3ff,#d6ebff,#666666
+BZT0,6,ECD,Eidolon Bahamut ZERO,Magical Ice Weak,BZT0-6.webp,,⏴⋅MAR⋅2025,1,#33669a,#ffffff,#e6f3ff,#d6ebff,#666666
+BZT0,7,ECD,Eidolon Bahamut ZERO,Physical Wind Weak,BZT0-7.webp,,⏴⋅APR⋅2025,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#666666
+BZT0,8,ECD,Eidolon Bahamut ZERO,Magical Wind Weak,BZT0-8.webp,,⏴⋅APR⋅2025,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#666666
+BZT0,9,ECD,Eidolon Bahamut ZERO,Physical Earth Weak,BZT0-9.webp,,⏴⋅MAY⋅2025,1,#996633,#ffffff,#f7ecda,#f2e0cc,#666666
+BZT0,10,ECD,Eidolon Bahamut ZERO,Magical Earth Weak,BZT0-10.webp,,⏴⋅MAY⋅2025,1,#996633,#ffffff,#f7ecda,#f2e0cc,#666666
+BZT0,11,ECD,Eidolon Bahamut ZERO,Physical Lightning Weak,BZT0-11.webp,,⏴⋅JUN⋅2025,1,#7f7f00,#ffffff,#ffffe6,#ffffcc,#666666
+BZT0,12,ECD,Eidolon Bahamut ZERO,Magical Lightning Weak,BZT0-12.webp,,⏴⋅JUN⋅2025,1,#7f7f00,#ffffff,#ffffe6,#ffffcc,#666666
+BZT0,13,ECD,Eidolon Bahamut ZERO,Physical Dark Weak,BZT0-13.webp,,⏴⋅DEC⋅2024,1,#663399,#ffffff,#ecf0ff,#e9e0ff,#666666
+BZT0,14,ECD,Eidolon Bahamut ZERO,Magical Dark Weak,BZT0-14.webp,,⏴⋅DEC⋅2024,1,#663399,#ffffff,#ecf0ff,#e9e0ff,#666666
+BZT0,15,ECD,Eidolon Bahamut ZERO,Physical Holy Weak,BZT0-15.webp,,⏴⋅FEB⋅2025,1,#66cc99,#000000,#e6fff2,#ccffe6,#666666
+BZT0,16,ECD,Eidolon Bahamut ZERO,Magical Holy Weak,BZT0-16.webp,,⏴⋅FEB⋅2025,1,#66cc99,#000000,#e6fff2,#ccffe6,#666666
+BZT0,17,ECD,Eidolon Bahamut ZERO,Physical Poison Weak,BZT0-17.webp,,⏴⋅AUG⋅2025,1,#00331a,#ffffff,#e6f5ec,#cceee0,#00ff00
+BZT0,18,ECD,Eidolon Bahamut ZERO,Magical Poison Weak,BZT0-18.webp,,⏴⋅AUG⋅2025,1,#00331a,#ffffff,#e6f5ec,#cceee0,#00ff00
+BZT0-HM,1,ECD,Eidolon Bahamut ZERO (HM),Physical Water Weak,BZT0-HM-1.webp,,⏴⋅JUL⋅2025,1,#00007f,#ffffff,#e6f0ff,#cce0ff,#b7b7b7
+BZT0-HM,2,ECD,Eidolon Bahamut ZERO (HM),Magical Water Weak,BZT0-HM-2.webp,,⏴⋅JUL⋅2025,1,#00007f,#ffffff,#e6f0ff,#cce0ff,#b7b7b7
+BZT0-HM,3,ECD,Eidolon Bahamut ZERO (HM),Physical Fire Weak,BZT0-HM-3.webp,,⏴⋅JAN⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#b7b7b7
+BZT0-HM,4,ECD,Eidolon Bahamut ZERO (HM),Magical Fire Weak,BZT0-HM-4.webp,,⏴⋅JAN⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#b7b7b7
+BZT0-HM,5,ECD,Eidolon Bahamut ZERO (HM),Physical Ice Weak,BZT0-HM-5.webp,,⏴⋅MAR⋅2025,1,#33669a,#ffffff,#e6f3ff,#d6ebff,#b7b7b7
+BZT0-HM,6,ECD,Eidolon Bahamut ZERO (HM),Magical Ice Weak,BZT0-HM-6.webp,,⏴⋅MAR⋅2025,1,#33669a,#ffffff,#e6f3ff,#d6ebff,#b7b7b7
+BZT0-HM,7,ECD,Eidolon Bahamut ZERO (HM),Physical Wind Weak,BZT0-HM-7.webp,,⏴⋅APR⋅2025,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
+BZT0-HM,8,ECD,Eidolon Bahamut ZERO (HM),Magical Wind Weak,BZT0-HM-8.webp,,⏴⋅APR⋅2025,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
+BZT0-HM,9,ECD,Eidolon Bahamut ZERO (HM),Physical Earth Weak,BZT0-HM-9.webp,,⏴⋅MAY⋅2025,1,#996633,#ffffff,#f7ecda,#f2e0cc,#b7b7b7
+BZT0-HM,10,ECD,Eidolon Bahamut ZERO (HM),Magical Earth Weak,BZT0-HM-10.webp,,⏴⋅MAY⋅2025,1,#996633,#ffffff,#f7ecda,#f2e0cc,#b7b7b7
+BZT0-HM,11,ECD,Eidolon Bahamut ZERO (HM),Physical Lightning Weak,BZT0-HM-11.webp,,⏴⋅JUN⋅2025,1,#7f7f00,#ffffff,#ffffe6,#ffffcc,#b7b7b7
+BZT0-HM,12,ECD,Eidolon Bahamut ZERO (HM),Magical Lightning Weak,BZT0-HM-12.webp,,⏴⋅JUN⋅2025,1,#7f7f00,#ffffff,#ffffe6,#ffffcc,#b7b7b7
+BZT0-HM,13,ECD,Eidolon Bahamut ZERO (HM),Physical Dark Weak,BZT0-HM-13.webp,,⏴⋅DEC⋅2024,1,#663399,#ffffff,#ecf0ff,#e9e0ff,#b7b7b7
+BZT0-HM,14,ECD,Eidolon Bahamut ZERO (HM),Magical Dark Weak,BZT0-HM-14.webp,,⏴⋅DEC⋅2024,1,#663399,#ffffff,#ecf0ff,#e9e0ff,#b7b7b7
+BZT0-HM,15,ECD,Eidolon Bahamut ZERO (HM),Physical Holy Weak,BZT0-HM-15.webp,,⏴⋅FEB⋅2025,1,#66cc99,#000000,#e6fff2,#ccffe6,#b7b7b7
+BZT0-HM,16,ECD,Eidolon Bahamut ZERO (HM),Magical Holy Weak,BZT0-HM-16.webp,,⏴⋅FEB⋅2025,1,#66cc99,#000000,#e6fff2,#ccffe6,#b7b7b7
+BZT0-HM,17,ECD,Eidolon Bahamut ZERO (HM),Physical Poison Weak,BZT0-HM-17.webp,,⏴⋅AUG⋅2025,1,#00331a,#ffffff,#e6f5ec,#cceee0,#00ff00
+BZT0-HM,18,ECD,Eidolon Bahamut ZERO (HM),Magical Poison Weak,BZT0-HM-18.webp,,⏴⋅AUG⋅2025,1,#00331a,#ffffff,#e6f5ec,#cceee0,#00ff00
+ARK,1,ECD,Ark,Physical Water Weak,ARK-1.webp,,⏴⋅OCT⋅2024,1,#00007f,#ffffff,#e6f0ff,#cce0ff,#666666
+ARK,2,ECD,Ark,Magical Water Weak,ARK-2.webp,,⏴⋅OCT⋅2024,1,#00007f,#ffffff,#e6f0ff,#cce0ff,#666666
+ARK,3,ECD,Ark,Physical Fire Weak,ARK-3.webp,,⏴⋅MAR⋅2024,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#666666
+ARK,4,ECD,Ark,Magical Fire Weak,ARK-4.webp,,⏴⋅MAR⋅2024,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#666666
+ARK,5,ECD,Ark,Physical Ice Weak,ARK-5.webp,,⏴⋅APR⋅2024,1,#33669a,#ffffff,#e6f3ff,#d6ebff,#666666
+ARK,6,ECD,Ark,Magical Ice Weak,ARK-6.webp,,⏴⋅APR⋅2024,1,#33669a,#ffffff,#e6f3ff,#d6ebff,#666666
+ARK,7,ECD,Ark,Physical Wind Weak,ARK-7.webp,,⏴⋅JUN⋅2024,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#666666
+ARK,8,ECD,Ark,Magical Wind Weak,ARK-8.webp,,⏴⋅JUN⋅2024,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#666666
+ARK,9,ECD,Ark,Physical Earth Weak,ARK-9.webp,,⏴⋅JUL⋅2024,1,#996633,#ffffff,#f7ecda,#f2e0cc,#666666
+ARK,10,ECD,Ark,Magical Earth Weak,ARK-10.webp,,⏴⋅JUL⋅2024,1,#996633,#ffffff,#f7ecda,#f2e0cc,#666666
+ARK,11,ECD,Ark,Physical Lightning Weak,ARK-11.webp,,⏴⋅AUG⋅2024,1,#7f7f00,#ffffff,#ffffe6,#ffffcc,#666666
+ARK,12,ECD,Ark,Magical Lightning Weak,ARK-12.webp,,⏴⋅AUG⋅2024,1,#7f7f00,#ffffff,#ffffe6,#ffffcc,#666666
+ARK,13,ECD,Ark,Physical Dark Weak,ARK-13.webp,,⏴⋅MAY⋅2024,1,#663399,#ffffff,#ecf0ff,#e9e0ff,#666666
+ARK,14,ECD,Ark,Magical Dark Weak,ARK-14.webp,,⏴⋅MAY⋅2024,1,#663399,#ffffff,#ecf0ff,#e9e0ff,#666666
+ARK,15,ECD,Ark,Physical Holy Weak,ARK-15.webp,,⏴⋅NOV⋅2024,1,#66cc99,#000000,#e6fff2,#ccffe6,#666666
+ARK,16,ECD,Ark,Magical Holy Weak,ARK-16.webp,,⏴⋅NOV⋅2024,1,#66cc99,#000000,#e6fff2,#ccffe6,#666666
+ARK,17,ECD,Ark,Physical Poison Weak,ARK-17.webp,,⏴⋅NOV⋅2024,1,#00331a,#ffffff,#e6f5ec,#cceee0,#00ff00
+ARK,18,ECD,Ark,Magical Poison Weak,ARK-18.webp,,⏴⋅NOV⋅2024,1,#00331a,#ffffff,#e6f5ec,#cceee0,#00ff00
+ARK-HM,1,ECD,Ark (HM),Physical Water Weak,ARK-HM-1.webp,,⏴⋅OCT⋅2024,1,#00007f,#ffffff,#e6f0ff,#cce0ff,#b7b7b7
+ARK-HM,2,ECD,Ark (HM),Magical Water Weak,ARK-HM-2.webp,,⏴⋅OCT⋅2024,1,#00007f,#ffffff,#e6f0ff,#cce0ff,#b7b7b7
+ARK-HM,3,ECD,Ark (HM),Physical Fire Weak,ARK-HM-3.webp,,⏴⋅MAR⋅2024,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#b7b7b7
+ARK-HM,4,ECD,Ark (HM),Magical Fire Weak,ARK-HM-4.webp,,⏴⋅MAR⋅2024,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#b7b7b7
+ARK-HM,5,ECD,Ark (HM),Physical Ice Weak,ARK-HM-5.webp,,⏴⋅APR⋅2024,1,#33669a,#ffffff,#e6f3ff,#d6ebff,#b7b7b7
+ARK-HM,6,ECD,Ark (HM),Magical Ice Weak,ARK-HM-6.webp,,⏴⋅APR⋅2024,1,#33669a,#ffffff,#e6f3ff,#d6ebff,#b7b7b7
+ARK-HM,7,ECD,Ark (HM),Physical Wind Weak,ARK-HM-7.webp,,⏴⋅JUN⋅2024,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
+ARK-HM,8,ECD,Ark (HM),Magical Wind Weak,ARK-HM-8.webp,,⏴⋅JUN⋅2024,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
+ARK-HM,9,ECD,Ark (HM),Physical Earth Weak,ARK-HM-9.webp,,⏴⋅JUL⋅2024,1,#996633,#ffffff,#f7ecda,#f2e0cc,#b7b7b7
+ARK-HM,10,ECD,Ark (HM),Magical Earth Weak,ARK-HM-10.webp,,⏴⋅JUL⋅2024,1,#996633,#ffffff,#f7ecda,#f2e0cc,#b7b7b7
+ARK-HM,11,ECD,Ark (HM),Physical Lightning Weak,ARK-HM-11.webp,,⏴⋅AUG⋅2024,1,#7f7f00,#ffffff,#ffffe6,#ffffcc,#b7b7b7
+ARK-HM,12,ECD,Ark (HM),Magical Lightning Weak,ARK-HM-12.webp,,⏴⋅AUG⋅2024,1,#7f7f00,#ffffff,#ffffe6,#ffffcc,#b7b7b7
+ARK-HM,13,ECD,Ark (HM),Physical Dark Weak,ARK-HM-13.webp,,⏴⋅MAY⋅2024,1,#663399,#ffffff,#ecf0ff,#e9e0ff,#b7b7b7
+ARK-HM,14,ECD,Ark (HM),Magical Dark Weak,ARK-HM-14.webp,,⏴⋅MAY⋅2024,1,#663399,#ffffff,#ecf0ff,#e9e0ff,#b7b7b7
+ARK-HM,15,ECD,Ark (HM),Physical Holy Weak,ARK-HM-15.webp,,⏴⋅NOV⋅2024,1,#66cc99,#000000,#e6fff2,#ccffe6,#b7b7b7
+ARK-HM,16,ECD,Ark (HM),Magical Holy Weak,ARK-HM-16.webp,,⏴⋅NOV⋅2024,1,#66cc99,#000000,#e6fff2,#ccffe6,#b7b7b7
+ARK-HM,17,ECD,Ark (HM),Physical Poison Weak,ARK-HM-17.webp,,⏴⋅NOV⋅2024,1,#00331a,#ffffff,#e6f5ec,#cceee0,#00ff00
+ARK-HM,18,ECD,Ark (HM),Magical Poison Weak,ARK-HM-18.webp,,⏴⋅NOV⋅2024,1,#00331a,#ffffff,#e6f5ec,#cceee0,#00ff00
 RCD2,1,RCD2,Final Fantasy I,,,Final Fantasy I D800,,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD2,2,RCD2,Final Fantasy II,,282fdf721638.webp,,⏴⋅JUL⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD2,2,RCD2,Final Fantasy II,,RCD2-2.webp,,⏴⋅JUL⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
 RCD2,3,RCD2,Final Fantasy III,,,Final Fantasy III D800,,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
 RCD2,4,RCD2,Final Fantasy IV,,,Final Fantasy IV D800,,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
 RCD2,5,RCD2,Final Fantasy V,,,Final Fantasy V D800,,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD2,6,RCD2,Final Fantasy VI,,8169072d4e2b.webp,,⏴⋅MAR⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD2,7,RCD2,Final Fantasy VII,,11be0556abca.webp,,⏴⋅JAN⋅2026,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD2,8,RCD2,Final Fantasy VIII,,3e3643484919.webp,,⏴⋅NOV⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD2,9,RCD2,Final Fantasy IX,,531ebfbe660b.webp,,⏴⋅JUN⋅2026,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD2,10,RCD2,Final Fantasy X,,e94ae2eb88d5.webp,,⏴⋅OCT⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD2,6,RCD2,Final Fantasy VI,,RCD2-6.webp,,⏴⋅MAR⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD2,7,RCD2,Final Fantasy VII,,RCD2-7.webp,,⏴⋅JAN⋅2026,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD2,8,RCD2,Final Fantasy VIII,,RCD2-8.webp,,⏴⋅NOV⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD2,9,RCD2,Final Fantasy IX,,RCD2-9.webp,,⏴⋅JUN⋅2026,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD2,10,RCD2,Final Fantasy X,,RCD2-10.webp,,⏴⋅OCT⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
 RCD2,11,RCD2,Final Fantasy XI,,,Final Fantasy XI D800,,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
 RCD2,12,RCD2,Final Fantasy XII,,,Final Fantasy XII D800,,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD2,13,RCD2,Final Fantasy XIII,,aab22d0c370d.webp,,⏴⋅AUG⋅2026,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD2,14,RCD2,Final Fantasy XIV,,fe711de1b4fa.webp,,⏴⋅FEB⋅2026,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD2,13,RCD2,Final Fantasy XIII,,RCD2-13.webp,,⏴⋅AUG⋅2026,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD2,14,RCD2,Final Fantasy XIV,,RCD2-14.webp,,⏴⋅FEB⋅2026,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
 RCD2,15,RCD2,Final Fantasy XV,,,Final Fantasy XV D800,,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
 RCD2,16,RCD2,Final Fantasy Tactics,,,Final Fantasy Tactics D800,,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD2,17,RCD2,Final Fantasy Type-0,,71474b66ad1f.webp,,⏴⋅APR⋅2026,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD2,18,RCD2,Final Fantasy Core,,8ef21729ba8f.webp,,⏴⋅SEP⋅2026,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD2,17,RCD2,Final Fantasy Type-0,,RCD2-17.webp,,⏴⋅APR⋅2026,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD2,18,RCD2,Final Fantasy Core,,RCD2-18.webp,,⏴⋅SEP⋅2026,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
 RCD2-HM,1,RCD2,Final Fantasy I (HM),,,Final Fantasy I D???,,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD2-HM,2,RCD2,Final Fantasy II (HM),,54406b76c67d.webp,,⏴⋅JUL⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#b7b7b7
+RCD2-HM,2,RCD2,Final Fantasy II (HM),,RCD2-HM-2.webp,,⏴⋅JUL⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#b7b7b7
 RCD2-HM,3,RCD2,Final Fantasy III (HM),,,Final Fantasy III D???,,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
 RCD2-HM,4,RCD2,Final Fantasy IV (HM),,,Final Fantasy IV D???,,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
 RCD2-HM,5,RCD2,Final Fantasy V (HM),,,Final Fantasy V D???,,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD2-HM,6,RCD2,Final Fantasy VI (HM),,7f9b4e7621d6.webp,,⏴⋅MAR⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#b7b7b7
-RCD2-HM,7,RCD2,Final Fantasy VII (HM),,c01b68621b45.webp,,⏴⋅JAN⋅2026,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD2-HM,8,RCD2,Final Fantasy VIII (HM),,b174b1be7667.webp,,⏴⋅NOV⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#b7b7b7
-RCD2-HM,9,RCD2,Final Fantasy IX (HM),,c784adc1c51b.webp,,⏴⋅JUN⋅2026,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD2-HM,10,RCD2,Final Fantasy X (HM),,318e80990179.webp,,⏴⋅OCT⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD2-HM,6,RCD2,Final Fantasy VI (HM),,RCD2-HM-6.webp,,⏴⋅MAR⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#b7b7b7
+RCD2-HM,7,RCD2,Final Fantasy VII (HM),,RCD2-HM-7.webp,,⏴⋅JAN⋅2026,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD2-HM,8,RCD2,Final Fantasy VIII (HM),,RCD2-HM-8.webp,,⏴⋅NOV⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#b7b7b7
+RCD2-HM,9,RCD2,Final Fantasy IX (HM),,RCD2-HM-9.webp,,⏴⋅JUN⋅2026,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD2-HM,10,RCD2,Final Fantasy X (HM),,RCD2-HM-10.webp,,⏴⋅OCT⋅2025,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
 RCD2-HM,11,RCD2,Final Fantasy XI (HM),,,Final Fantasy XI D???,,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
 RCD2-HM,12,RCD2,Final Fantasy XII (HM),,,Final Fantasy XII D???,,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD2-HM,13,RCD2,Final Fantasy XIII (HM),,6a4e77d4e9f2.webp,,⏴⋅AUG⋅2026,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD2-HM,14,RCD2,Final Fantasy XIV (HM),,84f2d3fe549c.webp,,⏴⋅FEB⋅2026,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD2-HM,13,RCD2,Final Fantasy XIII (HM),,RCD2-HM-13.webp,,⏴⋅AUG⋅2026,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD2-HM,14,RCD2,Final Fantasy XIV (HM),,RCD2-HM-14.webp,,⏴⋅FEB⋅2026,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
 RCD2-HM,15,RCD2,Final Fantasy XV (HM),,,Final Fantasy XV D???,,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
 RCD2-HM,16,RCD2,Final Fantasy Tactics (HM),,,Final Fantasy Tactics D???,,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD2-HM,17,RCD2,Final Fantasy Type-0 (HM),,9d2f23bb1d36.webp,,⏴⋅APR⋅2026,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD2-HM,18,RCD2,Final Fantasy Core (HM),,a0fa755ddfbc.webp,,⏴⋅SEP⋅2026,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD,1,RCD,Final Fantasy I,,cf6806504ad1.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD,2,RCD,Final Fantasy II,,f37da3f11257.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD,3,RCD,Final Fantasy III,,a8f53a2045bf.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD,4,RCD,Final Fantasy IV,,c117a3482794.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD,5,RCD,Final Fantasy V,,25c5f3e23560.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD,6,RCD,Final Fantasy VI,,8d3210d170e5.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD,7,RCD,Final Fantasy VII,,e49e445db3a8.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD,8,RCD,Final Fantasy VIII,,8fa299c3abad.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD,9,RCD,Final Fantasy IX,,6e4e7e904aa1.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD,10,RCD,Final Fantasy X,,62b600498202.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD,11,RCD,Final Fantasy XI,,8ef99bc2d33f.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD,12,RCD,Final Fantasy XII,,1da3ee1cec51.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD,13,RCD,Final Fantasy XIII,,02e2dcb75ad1.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD,14,RCD,Final Fantasy XIV,,4d321855b4fe.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD,15,RCD,Final Fantasy XV,,dcdffd6de435.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD,16,RCD,Final Fantasy Tactics,,235a1fe49b45.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD,17,RCD,Final Fantasy Type-0,,a632e0633240.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD,18,RCD,Final Fantasy Core,,9051cf9f22a6.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD-HM,1,RCD,Final Fantasy I (HM),,0fdcc93371be.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD-HM,2,RCD,Final Fantasy II (HM),,bb7e0c436b37.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#b7b7b7
-RCD-HM,3,RCD,Final Fantasy III (HM),,4b9ec3164436.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD-HM,4,RCD,Final Fantasy IV (HM),,e7166ae87dbf.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD-HM,5,RCD,Final Fantasy V (HM),,dc1671b0ef93.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD-HM,6,RCD,Final Fantasy VI (HM),,63c16f0d8f96.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#b7b7b7
-RCD-HM,7,RCD,Final Fantasy VII (HM),,1ce594318632.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD-HM,8,RCD,Final Fantasy VIII (HM),,9825e780dd47.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#b7b7b7
-RCD-HM,9,RCD,Final Fantasy IX (HM),,3cfb18c30616.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD-HM,10,RCD,Final Fantasy X (HM),,0c0704362199.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD-HM,11,RCD,Final Fantasy XI (HM),,0c2886847bf6.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD-HM,12,RCD,Final Fantasy XII (HM),,87d4a30c7547.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD-HM,13,RCD,Final Fantasy XIII (HM),,cf6c5f03031b.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD-HM,14,RCD,Final Fantasy XIV (HM),,2da48b2739c9.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD-HM,15,RCD,Final Fantasy XV (HM),,57a8f36f52da.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD-HM,16,RCD,Final Fantasy Tactics (HM),,64a3e3754da5.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD-HM,17,RCD,Final Fantasy Type-0 (HM),,097e71bda0db.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-RCD-HM,18,RCD,Final Fantasy Core (HM),,909d49626d35.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
-JCD2,1,JCD2,Witch,,4143113bde7f.webp,,⏴⋅JUN⋅2025,1,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+RCD2-HM,17,RCD2,Final Fantasy Type-0 (HM),,RCD2-HM-17.webp,,⏴⋅APR⋅2026,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD2-HM,18,RCD2,Final Fantasy Core (HM),,RCD2-HM-18.webp,,⏴⋅SEP⋅2026,1,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD,1,RCD,Final Fantasy I,,RCD-1.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD,2,RCD,Final Fantasy II,,RCD-2.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD,3,RCD,Final Fantasy III,,RCD-3.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD,4,RCD,Final Fantasy IV,,RCD-4.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD,5,RCD,Final Fantasy V,,RCD-5.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD,6,RCD,Final Fantasy VI,,RCD-6.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD,7,RCD,Final Fantasy VII,,RCD-7.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD,8,RCD,Final Fantasy VIII,,RCD-8.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD,9,RCD,Final Fantasy IX,,RCD-9.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD,10,RCD,Final Fantasy X,,RCD-10.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD,11,RCD,Final Fantasy XI,,RCD-11.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD,12,RCD,Final Fantasy XII,,RCD-12.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD,13,RCD,Final Fantasy XIII,,RCD-13.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD,14,RCD,Final Fantasy XIV,,RCD-14.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD,15,RCD,Final Fantasy XV,,RCD-15.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD,16,RCD,Final Fantasy Tactics,,RCD-16.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD,17,RCD,Final Fantasy Type-0,,RCD-17.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD,18,RCD,Final Fantasy Core,,RCD-18.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD-HM,1,RCD,Final Fantasy I (HM),,RCD-HM-1.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD-HM,2,RCD,Final Fantasy II (HM),,RCD-HM-2.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#b7b7b7
+RCD-HM,3,RCD,Final Fantasy III (HM),,RCD-HM-3.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD-HM,4,RCD,Final Fantasy IV (HM),,RCD-HM-4.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD-HM,5,RCD,Final Fantasy V (HM),,RCD-HM-5.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD-HM,6,RCD,Final Fantasy VI (HM),,RCD-HM-6.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#b7b7b7
+RCD-HM,7,RCD,Final Fantasy VII (HM),,RCD-HM-7.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD-HM,8,RCD,Final Fantasy VIII (HM),,RCD-HM-8.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#b7b7b7
+RCD-HM,9,RCD,Final Fantasy IX (HM),,RCD-HM-9.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD-HM,10,RCD,Final Fantasy X (HM),,RCD-HM-10.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD-HM,11,RCD,Final Fantasy XI (HM),,RCD-HM-11.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD-HM,12,RCD,Final Fantasy XII (HM),,RCD-HM-12.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD-HM,13,RCD,Final Fantasy XIII (HM),,RCD-HM-13.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD-HM,14,RCD,Final Fantasy XIV (HM),,RCD-HM-14.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD-HM,15,RCD,Final Fantasy XV (HM),,RCD-HM-15.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD-HM,16,RCD,Final Fantasy Tactics (HM),,RCD-HM-16.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD-HM,17,RCD,Final Fantasy Type-0 (HM),,RCD-HM-17.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+RCD-HM,18,RCD,Final Fantasy Core (HM),,RCD-HM-18.webp,,,0,#7f0000,#ffffff,#ffe6e6,#ffd6d6,#ff0000
+JCD2,1,JCD2,Witch,,JCD2-1.webp,,⏴⋅JUN⋅2025,1,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
 JCD2,2,JCD2,Warrior II,,,Warrior II D800,,1,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD2,3,JCD2,Warrior I,,22e2591bac10.webp,,⏴⋅AUG⋅2025,1,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD2,4,JCD2,Mage II,,0e873edcac49.webp,,⏴⋅DEC⋅2025,1,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD2,5,JCD2,Mage I,,34a21eadf0d7.webp,,⏴⋅JUL⋅2026,1,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD2,6,JCD2,Machinist,,6f9bd948de15.webp,,⏴⋅APR⋅2026,1,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD2,7,JCD2,Sharpshooter,,9a9d85017419.webp,,⏴⋅OCT⋅2026,1,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD2,8,JCD2,Spellblade,,ad99655fdfcb.webp,,⏴⋅SEP⋅2025,1,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD2,3,JCD2,Warrior I,,JCD2-3.webp,,⏴⋅AUG⋅2025,1,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD2,4,JCD2,Mage II,,JCD2-4.webp,,⏴⋅DEC⋅2025,1,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD2,5,JCD2,Mage I,,JCD2-5.webp,,⏴⋅JUL⋅2026,1,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD2,6,JCD2,Machinist,,JCD2-6.webp,,⏴⋅APR⋅2026,1,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD2,7,JCD2,Sharpshooter,,JCD2-7.webp,,⏴⋅OCT⋅2026,1,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD2,8,JCD2,Spellblade,,JCD2-8.webp,,⏴⋅SEP⋅2025,1,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
 JCD2,9,JCD2,Samurai,,,Samurai D800,,1,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
 JCD2,10,JCD2,Ninja,,,Ninja D800,,1,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD2,11,JCD2,Thief,,48e8985a0a6f.webp,,⏴⋅NOV⋅2026,1,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD2,11,JCD2,Thief,,JCD2-11.webp,,⏴⋅NOV⋅2026,1,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
 JCD2,12,JCD2,Knight,,,Knight D800,,1,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD2,13,JCD2,Monk,,7255e0cdde39.webp,,⏴⋅MAY⋅2026,1,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD2,14,JCD2,Dragoon,,04b9a66c886b.webp,,⏴⋅JUN⋅2026,1,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD2,13,JCD2,Monk,,JCD2-13.webp,,⏴⋅MAY⋅2026,1,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD2,14,JCD2,Dragoon,,JCD2-14.webp,,⏴⋅JUN⋅2026,1,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
 JCD2,15,JCD2,Summoner,,,Summoner D800,,1,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD2-HM,1,JCD2,Witch (HM),,029798c29781.webp,,⏴⋅JUN⋅2025,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#999999
+JCD2-HM,1,JCD2,Witch (HM),,JCD2-HM-1.webp,,⏴⋅JUN⋅2025,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#999999
 JCD2-HM,2,JCD2,Warrior II (HM),,,Warrior II D???,,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD2-HM,3,JCD2,Warrior I (HM),,72c32204b5f2.webp,,⏴⋅AUG⋅2025,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
-JCD2-HM,4,JCD2,Mage II (HM),,7ba95ac43933.webp,,⏴⋅DEC⋅2025,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
-JCD2-HM,5,JCD2,Mage I (HM),,565590eb0811.webp,,⏴⋅JUL⋅2026,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#cccccc
-JCD2-HM,6,JCD2,Machinist (HM),,b563cdfced06.webp,,⏴⋅APR⋅2026,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
-JCD2-HM,7,JCD2,Sharpshooter (HM),,1353b6a22cf3.webp,,⏴⋅OCT⋅2026,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
-JCD2-HM,8,JCD2,Spellblade (HM),,033b22b73d82.webp,,⏴⋅SEP⋅2025,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
+JCD2-HM,3,JCD2,Warrior I (HM),,JCD2-HM-3.webp,,⏴⋅AUG⋅2025,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
+JCD2-HM,4,JCD2,Mage II (HM),,JCD2-HM-4.webp,,⏴⋅DEC⋅2025,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
+JCD2-HM,5,JCD2,Mage I (HM),,JCD2-HM-5.webp,,⏴⋅JUL⋅2026,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#cccccc
+JCD2-HM,6,JCD2,Machinist (HM),,JCD2-HM-6.webp,,⏴⋅APR⋅2026,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
+JCD2-HM,7,JCD2,Sharpshooter (HM),,JCD2-HM-7.webp,,⏴⋅OCT⋅2026,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
+JCD2-HM,8,JCD2,Spellblade (HM),,JCD2-HM-8.webp,,⏴⋅SEP⋅2025,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
 JCD2-HM,9,JCD2,Samurai (HM),,,Samurai D???,,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#00ff00
 JCD2-HM,10,JCD2,Ninja (HM),,,Ninja D???,,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD2-HM,11,JCD2,Thief (HM),,00e7ad47d9e1.webp,,⏴⋅NOV⋅2026,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
+JCD2-HM,11,JCD2,Thief (HM),,JCD2-HM-11.webp,,⏴⋅NOV⋅2026,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
 JCD2-HM,12,JCD2,Knight (HM),,,Knight D???,,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD2-HM,13,JCD2,Monk (HM),,4215fa5498ca.webp,,⏴⋅MAY⋅2026,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
-JCD2-HM,14,JCD2,Dragoon (HM),,d42bb3e77992.webp,,⏴⋅JUN⋅2026,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
+JCD2-HM,13,JCD2,Monk (HM),,JCD2-HM-13.webp,,⏴⋅MAY⋅2026,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
+JCD2-HM,14,JCD2,Dragoon (HM),,JCD2-HM-14.webp,,⏴⋅JUN⋅2026,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
 JCD2-HM,15,JCD2,Summoner (HM),,,Summoner D???,,1,#007f00,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD,1,JCD,Witch,,de8358032e8a.webp,,⏴⋅FEB⋅2024,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD,2,JCD,Warrior II,,a724bbf29fd2.webp,,⏴⋅JUN⋅2024,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD,3,JCD,Warrior I,,ef6fc6e507ff.webp,,⏴⋅APR⋅2024,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD,4,JCD,Mage II,,a62c8907ab43.webp,,⏴⋅NOV⋅2024,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD,5,JCD,Mage I,,fc2399f4aa9d.webp,,⏴⋅AUG⋅2024,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD,6,JCD,Machinist,,cfbdb7dac025.webp,,⏴⋅MAR⋅2025,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD,7,JCD,Sharpshooter,,530330a6bc5b.webp,,⏴⋅JAN⋅2025,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD,8,JCD,Spellblade,,510bb9e46fc2.webp,,⏴⋅AUG⋅2024,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD,9,JCD,Samurai,,577ff24b09d7.webp,,⏴⋅JAN⋅2025,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD,10,JCD,Ninja,,671c59dca6d3.webp,,⏴⋅MAY⋅2025,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD,11,JCD,Thief,,ac84dbd1e766.webp,,⏴⋅OCT⋅2024,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD,12,JCD,Knight,,c63f4837d053.webp,,⏴⋅MAY⋅2025,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD,13,JCD,Monk,,0fde501add75.webp,,⏴⋅APR⋅2025,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD,14,JCD,Dragoon,,aecbd3641629.webp,,⏴⋅FEB⋅2025,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD,15,JCD,Summoner,,eecbe3fe5cd8.webp,,,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD-HM,1,JCD,Witch (HM),,a61da279a4fc.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD-HM,2,JCD,Warrior II (HM),,b5c22a5f2648.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
-JCD-HM,3,JCD,Warrior I (HM),,e1b99c67cf54.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD-HM,4,JCD,Mage II (HM),,9fe9163f96f1.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD-HM,5,JCD,Mage I (HM),,24cc9cf0ed1d.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD-HM,6,JCD,Machinist (HM),,bcfe5b2a754b.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
-JCD-HM,7,JCD,Sharpshooter (HM),,3d05cb5718c7.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
-JCD-HM,8,JCD,Spellblade (HM),,c06e6685904b.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD-HM,9,JCD,Samurai (HM),,aab9716a6918.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#00ff00
-JCD-HM,10,JCD,Ninja (HM),,13a210d5a018.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
-JCD-HM,11,JCD,Thief (HM),,b067ba5b48cc.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
-JCD-HM,12,JCD,Knight (HM),,88b39b8ed98b.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
-JCD-HM,13,JCD,Monk (HM),,1241b1c7b1a4.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
-JCD-HM,14,JCD,Dragoon (HM),,163512f94302.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
-JCD-HM,15,JCD,Summoner (HM),,d41db2d166d3.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
+JCD,1,JCD,Witch,,JCD-1.webp,,⏴⋅FEB⋅2024,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD,2,JCD,Warrior II,,JCD-2.webp,,⏴⋅JUN⋅2024,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD,3,JCD,Warrior I,,JCD-3.webp,,⏴⋅APR⋅2024,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD,4,JCD,Mage II,,JCD-4.webp,,⏴⋅NOV⋅2024,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD,5,JCD,Mage I,,JCD-5.webp,,⏴⋅AUG⋅2024,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD,6,JCD,Machinist,,JCD-6.webp,,⏴⋅MAR⋅2025,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD,7,JCD,Sharpshooter,,JCD-7.webp,,⏴⋅JAN⋅2025,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD,8,JCD,Spellblade,,JCD-8.webp,,⏴⋅AUG⋅2024,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD,9,JCD,Samurai,,JCD-9.webp,,⏴⋅JAN⋅2025,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD,10,JCD,Ninja,,JCD-10.webp,,⏴⋅MAY⋅2025,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD,11,JCD,Thief,,JCD-11.webp,,⏴⋅OCT⋅2024,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD,12,JCD,Knight,,JCD-12.webp,,⏴⋅MAY⋅2025,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD,13,JCD,Monk,,JCD-13.webp,,⏴⋅APR⋅2025,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD,14,JCD,Dragoon,,JCD-14.webp,,⏴⋅FEB⋅2025,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD,15,JCD,Summoner,,JCD-15.webp,,,0,#34a853,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD-HM,1,JCD,Witch (HM),,JCD-HM-1.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD-HM,2,JCD,Warrior II (HM),,JCD-HM-2.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
+JCD-HM,3,JCD,Warrior I (HM),,JCD-HM-3.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD-HM,4,JCD,Mage II (HM),,JCD-HM-4.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD-HM,5,JCD,Mage I (HM),,JCD-HM-5.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD-HM,6,JCD,Machinist (HM),,JCD-HM-6.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
+JCD-HM,7,JCD,Sharpshooter (HM),,JCD-HM-7.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
+JCD-HM,8,JCD,Spellblade (HM),,JCD-HM-8.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD-HM,9,JCD,Samurai (HM),,JCD-HM-9.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#00ff00
+JCD-HM,10,JCD,Ninja (HM),,JCD-HM-10.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
+JCD-HM,11,JCD,Thief (HM),,JCD-HM-11.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
+JCD-HM,12,JCD,Knight (HM),,JCD-HM-12.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
+JCD-HM,13,JCD,Monk (HM),,JCD-HM-13.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
+JCD-HM,14,JCD,Dragoon (HM),,JCD-HM-14.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7
+JCD-HM,15,JCD,Summoner (HM),,JCD-HM-15.webp,,,0,#007f00,#ffffff,#e6ffe6,#d6ffd6,#b7b7b7

@@ -15,7 +15,7 @@ Records reach the sheet when a moderator approves a submission on Discord. The
 sheet can't notify the site, so a GitHub Actions workflow reads it every 15
 minutes. The sheet is only ever read.
 
-1. `tools/build_data.py` rebuilds `data/`, `assets/banners/` and `assets/sprites/`
+1. `tools/build_data.py` rebuilds `data/` and `assets/sprites/`
    from the sheet's public export. If the export looks broken it stops, and the
    site stays as it is.
 2. If anything changed, the workflow commits it, runs `tools/build_site.php` and
@@ -52,10 +52,13 @@ python tools/build_data.py
 - `data/`: generated CSVs (`records.csv` is the sheet's RawData tab;
   `record_changes.csv` logs each submission as new or updated, which the sheet
   doesn't keep, so it is added to rather than regenerated)
-- `assets/banners/`: fight banners from the sheet, converted to WebP
+- `assets/block-banners/`: the banner of each block, as `<sheet>-<position>.webp`
+  (`LICH-14.webp`, `RCD2-HM-7.webp`). The sheet has no pictures, so a new block
+  gets its banner by adding its file here; a block without one shows none.
+- `assets/fight-banners/`: the home page banner of each fight, as `<sheet>.webp`
+  and `<sheet>-HM.webp`
 - `assets/sprites/`: copies of the character sprites, medals and badges
-- `tools/build_data.py`: regenerates `data/`, `assets/banners/` and `assets/sprites/`
-  from the sheet
+- `tools/build_data.py`: regenerates `data/` and `assets/sprites/` from the sheet
 - `tools/build_site.php`: generates the pages in `dist/`
 - `.github/workflows/update-site.yml`: the scheduled update
 

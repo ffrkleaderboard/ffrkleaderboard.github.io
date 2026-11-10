@@ -159,7 +159,7 @@ function block_record_count($site, $block)
 /** Preview image of a page shared as a link: [path, width, height]. */
 function banner_preview($banner)
 {
-    return $banner === '' ? SITE_BANNER : ['assets/banners/' . $banner, BANNER_SIZE[0], BANNER_SIZE[1]];
+    return $banner === '' ? SITE_BANNER : [BLOCK_BANNER_DIR . $banner, BANNER_SIZE[0], BANNER_SIZE[1]];
 }
 
 /** Banner of a fight's gallery in link previews: its first block that has one. */
@@ -398,6 +398,9 @@ function home_sections($site)
     return $sections;
 }
 
+/** Block banners, named <sheet>-<position>.webp (LICH-14.webp); blocks.csv holds the file name. */
+const BLOCK_BANNER_DIR = 'assets/block-banners/';
+
 /** Home banners made for the site, one per sheet, named like the sheet: LICH.webp, LICH-HM.webp. */
 const FIGHT_BANNER_DIR = 'assets/fight-banners/';
 
@@ -415,7 +418,7 @@ function fight_banners($site, $sheet)
     $hardBlocks = $site['blocks'][$sheet . '-HM'];
     foreach ($site['blocks'][$sheet] as $index => $block) {
         if ($block['banner'] !== '' && $hardBlocks[$index]['banner'] !== '') {
-            return ['assets/banners/' . $block['banner'], 'assets/banners/' . $hardBlocks[$index]['banner']];
+            return [BLOCK_BANNER_DIR . $block['banner'], BLOCK_BANNER_DIR . $hardBlocks[$index]['banner']];
         }
     }
     return ['', ''];

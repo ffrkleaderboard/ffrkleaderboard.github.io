@@ -190,7 +190,7 @@ function render_block_card($site, $sheet, $block)
 {
     ?>
     <a class="fight-card" href="<?= h(fight_url($sheet, $block['position'])) ?>">
-        <img src="assets/banners/<?= h($block['banner']) ?>" alt="" width="576" height="144" loading="lazy">
+        <img src="<?= h(BLOCK_BANNER_DIR . $block['banner']) ?>" alt="" width="576" height="144" loading="lazy">
         <span class="fight-caption">
             <span class="fight-name"><?= h(block_name($block)) ?></span>
             <span class="fight-count"><?= block_record_count($site, $block) ?> records</span>
@@ -520,7 +520,7 @@ function render_block($site, $block)
     <section class="block" style="<?= h($style) ?>" aria-label="<?= h(block_title($block)) ?>">
         <header class="block-head">
             <?php if ($block['banner'] !== ''): ?>
-                <img class="banner" src="assets/banners/<?= h($block['banner']) ?>" alt="<?= h(block_title($block)) ?>" width="576" height="144" loading="lazy">
+                <img class="banner" src="<?= h(BLOCK_BANNER_DIR . $block['banner']) ?>" alt="<?= h(block_title($block)) ?>" width="576" height="144" loading="lazy">
             <?php else: ?>
                 <h2 class="block-label"><?= h($block['label'] !== '' ? $block['label'] : block_title($block)) ?></h2>
             <?php endif; ?>
