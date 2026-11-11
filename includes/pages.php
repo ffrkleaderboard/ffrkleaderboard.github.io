@@ -182,7 +182,8 @@ function render_hall_of_fame_page($site)
 
 function render_not_found_page($site)
 {
-    page_start('Page not found', $site, 'This page does not exist.', SITE_BANNER, '');
+    // GitHub Pages serves this page at any missing path, /a/b.html too: '/' keeps its links working there.
+    page_start('Page not found', $site, 'This page does not exist.', SITE_BANNER, '', null, '/');
     echo '<header class="hero"><h1>Page not found</h1></header>';
     page_end();
 }

@@ -207,12 +207,18 @@ function keeper_url($username)
     return 'keeper-' . $slug . '-' . substr(md5($username), 0, 6) . '.html';
 }
 
+/**
+ * Keepers with a record in a fight the site shows. A record whose fight matches no
+ * block would give a keeper page with no entries, so it doesn't count.
+ */
 function keeper_names($site)
 {
     $names = [];
-    foreach ($site['records'] as $records) {
-        foreach ($records as $record) {
-            $names[$record['username']] = true;
+    foreach ($site['blocks'] as $blocks) {
+        foreach ($blocks as $block) {
+            foreach ($site['records'][block_key($block)] ?? [] as $record) {
+                $names[$record['username']] = true;
+            }
         }
     }
     return array_map('strval', array_keys($names));

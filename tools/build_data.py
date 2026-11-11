@@ -45,6 +45,10 @@ THEME_COLORS = {7: "#34a853"}
 FALLBACK_HEAD = "#333333"
 # A shrinking export means something is wrong with it, not that records left.
 MIN_RECORDS_KEPT = 0.9
+# Largest image copied into assets/sprites/; a bigger one stays on its host.
+MAX_IMAGE_BYTES = 5 * 1024 * 1024
+# Tab names become file names and links (LICH-HM.html), so they must be safe in both.
+TAB_NAME = re.compile(r"[A-Za-z0-9](?:[A-Za-z0-9 _-]*[A-Za-z0-9_-])?")
 
 
 def lh3(url):
@@ -140,10 +144,18 @@ def badge_override(icon):
 
 
 def download_image(url):
-    """The image at `url` as (bytes, extension), or None if it can't be fetched."""
+    """The image at `url` as (bytes, extension), or None if it can't be fetched.
+
+    Only http(s) URLs are fetched: urllib would also open file:// and others.
+    """
+    if not re.match(r"https?://", url, re.IGNORECASE):
+        print(f"  not copying {url}: not an http(s) URL")
+        return None
     try:
         with urllib.request.urlopen(url, timeout=30) as response:
-            data = response.read()
+            data = response.read(MAX_IMAGE_BYTES + 1)
+        if len(data) > MAX_IMAGE_BYTES:
+            raise ValueError(f"larger than {MAX_IMAGE_BYTES} bytes")
         with Image.open(io.BytesIO(data)) as image:
             extension = image.format.lower()
             image.verify()
@@ -276,6 +288,9 @@ def main():
     records = load_records(value_book)
     names = value_book.sheetnames
     tabs = names[names.index(FIRST_TAB):names.index(LAST_TAB) + 1]
+    for tab in tabs:
+        if not TAB_NAME.fullmatch(tab):
+            sys.exit(f"Tab name {tab!r} can't be used as a page name: keeping data/")
 
     cfg = value_book["Config"]
     sheets, cds = column(cfg, 7), column(cfg, 6)

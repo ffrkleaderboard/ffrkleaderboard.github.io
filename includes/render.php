@@ -5,8 +5,10 @@
  * (from banner_preview) fill the preview that Discord and other apps show for a
  * shared link. $current is the sheet whose tab is highlighted, or '' for none; null
  * leaves out the tab bar, as on the home page, whose dropdown has the keeper search.
+ * $base, when given, is where the page's relative links start from: the 404 page
+ * needs '/' since it is served at whatever missing path was asked for.
  */
-function page_start($name, $site, $description, $image, $current = null, $currentBlock = null)
+function page_start($name, $site, $description, $image, $current = null, $currentBlock = null, $base = null)
 {
     $title = $name === SITE_NAME ? $name : $name . ' · ' . SITE_NAME;
     list($imagePath, $imageWidth, $imageHeight) = $image;
@@ -15,6 +17,9 @@ function page_start($name, $site, $description, $image, $current = null, $curren
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <?php if ($base !== null): ?>
+    <base href="<?= h($base) ?>">
+    <?php endif; ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="referrer" content="no-referrer">
     <title><?= h($title) ?></title>
