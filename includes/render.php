@@ -242,11 +242,30 @@ function render_rank($site, $rank)
     return h($rank);
 }
 
+/** Width / height of an image in the repo, or null when it is elsewhere or can't be read. */
+function image_ratio($src)
+{
+    $file = __DIR__ . '/../' . $src;
+    if (preg_match('#^https?://#', $src) || !is_file($file) || !($size = getimagesize($file))) {
+        return null;
+    }
+    return $size[0] / $size[1];
+}
+
+/** A badge 16px tall, as wide as its image's proportions ask; square when the image is not in the repo. */
+function badge_img($src, $alt, $title)
+{
+    $height = 16;
+    $ratio = image_ratio($src);
+    $width = $ratio ? (int) round($height * $ratio) : $height;
+    return '<img class="badge" src="' . h($src) . '" alt="' . h($alt) . '" title="' . h($title) . '" width="' . $width . '" height="' . $height . '" loading="lazy">';
+}
+
 function render_badges($site, $badges)
 {
     foreach ($badges as $badge) {
         if (isset($site['icons'][$badge])) {
-            echo '<img class="badge" src="' . h($site['icons'][$badge]) . '" alt="' . h($badge) . '" title="' . h($badge) . '" width="16" height="16" loading="lazy"> ';
+            echo badge_img($site['icons'][$badge], $badge, $badge) . ' ';
         }
     }
 }
@@ -254,7 +273,7 @@ function render_badges($site, $badges)
 function render_video_badge($site)
 {
     if (isset($site['icons']['YT'])) {
-        echo '<img class="badge" src="' . h($site['icons']['YT']) . '" alt="Video" title="Video" width="16" height="16" loading="lazy">';
+        echo badge_img($site['icons']['YT'], 'Video', 'Video');
     }
 }
 
@@ -487,7 +506,8 @@ function render_usage($site, $ranking)
                 <th scope="col" class="char">CHARACTER USAGE RATE</th>
                 <th scope="col" class="icon">
                     <?php if (isset($site['icons']['VAJ'])): ?>
-                        <img src="<?= h($site['icons']['VAJ']) ?>" alt="" width="36" height="24" loading="lazy">
+                        <?php $ratio = image_ratio($site['icons']['VAJ']); ?>
+                        <img src="<?= h($site['icons']['VAJ']) ?>" alt="" width="36" height="<?= $ratio ? (int) round(36 / $ratio) : 24 ?>" loading="lazy">
                     <?php endif; ?>
                 </th>
                 <th scope="col" class="quote">"Why not sub<?= $target ?>?"</th>

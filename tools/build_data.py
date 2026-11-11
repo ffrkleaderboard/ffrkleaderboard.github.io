@@ -3,7 +3,8 @@
 
 The sheet is only ever read, through its public xlsx export. Block banners are not
 taken from it: each one is a file in assets/block-banners/ named <sheet>-<position>.webp
-(LICH-14.webp), added by hand. Character sprites,
+(LICH-14.webp), added by hand. A badge with a file in assets/badges/ named after it
+(F2P.webp) uses that file instead of the sheet's image. Character sprites,
 medals and badges are copied into assets/sprites/ so the site doesn't depend on
 their hosts; one that can't be downloaded keeps its original URL.
 
@@ -31,6 +32,7 @@ EXPORT_URL = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/export?format=x
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
 BANNER_DIR = ROOT / "assets" / "block-banners"
+BADGE_DIR = ROOT / "assets" / "badges"
 SPRITE_DIR = ROOT / "assets" / "sprites"
 DOWNLOAD_WORKERS = 4
 
@@ -129,6 +131,12 @@ def block_banner(tab, position):
     """File name of a block's banner in assets/block-banners/, or "" when it has none."""
     name = f"{tab}-{position}.webp"
     return name if (BANNER_DIR / name).exists() else ""
+
+
+def badge_override(icon):
+    """Path of the badge kept in assets/badges/ for `icon`, or None when the sheet's is used."""
+    path = BADGE_DIR / f"{icon}.webp"
+    return f"assets/badges/{path.name}" if path.exists() else None
 
 
 def download_image(url):
@@ -324,13 +332,17 @@ def main():
         if row[0] is not None and row[1]
     ]
 
-    paths = mirror_images([url for row in characters for url in row[2:]] + [row[1] for row in icons])
+    icons = [[icon, badge_override(icon) or url] for icon, url in icons]
+    paths = mirror_images(
+        [url for row in characters for url in row[2:]]
+        + [url for _, url in icons if not url.startswith("assets/")]
+    )
     write_csv(
         "characters.csv",
         ["code", "name", "icon", "sprite"],
         [[code, name, paths.get(icon, icon), paths.get(sprite, sprite)] for code, name, icon, sprite in characters],
     )
-    write_csv("icons.csv", ["icon", "url"], [[icon, paths[url]] for icon, url in icons])
+    write_csv("icons.csv", ["icon", "url"], [[icon, paths.get(url, url)] for icon, url in icons])
 
 
 if __name__ == "__main__":

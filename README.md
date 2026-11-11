@@ -57,6 +57,8 @@ python tools/build_data.py
   gets its banner by adding its file here; a block without one shows none.
 - `assets/fight-banners/`: the home page banner of each fight, as `<sheet>.webp`
   and `<sheet>-HM.webp`
+- `assets/badges/`: badges kept in the repo, as `<badge>.webp` (`F2P.webp`,
+  `YT.webp`). A badge with a file here uses it instead of the sheet's image.
 - `assets/sprites/`: copies of the character sprites, medals and badges
 - `tools/build_data.py`: regenerates `data/` and `assets/sprites/` from the sheet
 - `tools/build_site.php`: generates the pages in `dist/`
