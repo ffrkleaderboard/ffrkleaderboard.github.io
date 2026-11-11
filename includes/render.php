@@ -252,12 +252,12 @@ function image_ratio($src)
     return $size[0] / $size[1];
 }
 
-/** A badge 16px tall, as wide as its image's proportions ask; square when the image is not in the repo. */
+/** A badge fitted inside 16x16 at its image's proportions; square when the image is not in the repo. */
 function badge_img($src, $alt, $title)
 {
-    $height = 16;
-    $ratio = image_ratio($src);
-    $width = $ratio ? (int) round($height * $ratio) : $height;
+    $ratio = image_ratio($src) ?? 1;
+    $width = $ratio > 1 ? 16 : (int) round(16 * $ratio);
+    $height = $ratio > 1 ? (int) round(16 / $ratio) : 16;
     return '<img class="badge" src="' . h($src) . '" alt="' . h($alt) . '" title="' . h($title) . '" width="' . $width . '" height="' . $height . '" loading="lazy">';
 }
 
