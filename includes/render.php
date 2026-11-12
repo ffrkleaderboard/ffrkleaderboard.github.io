@@ -232,6 +232,26 @@ function render_mode_links($site, $sheet, $position = null)
     <?php
 }
 
+/** Physical | Magical toggle of an elemental fight page. */
+function render_type_links($site, $sheet, $block)
+{
+    $type = block_type($block);
+    $counterpart = type_counterpart($site, $sheet, $block);
+    ?>
+    <nav class="mode-toggle" aria-label="Attack type">
+        <?php foreach (['Physical', 'Magical'] as $option): ?>
+            <?php if ($option === $type): ?>
+                <a href="<?= h(fight_url($sheet, $block['position'])) ?>" aria-current="page"><?= $option ?></a>
+            <?php elseif ($counterpart): ?>
+                <a href="<?= h(fight_url($sheet, $counterpart['position'])) ?>"><?= $option ?></a>
+            <?php else: ?>
+                <span class="mode-unavailable" title="Not released yet"><?= $option ?></span>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </nav>
+    <?php
+}
+
 function render_gallery($site, $sheet, $blocks)
 {
     ?>

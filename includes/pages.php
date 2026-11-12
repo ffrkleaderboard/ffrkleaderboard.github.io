@@ -102,10 +102,17 @@ function render_block_page($site, $sheet, $block)
     <h1><?= h(block_title($block)) ?></h1>
     <p><?= block_record_count($site, $block) ?> records</p>
     <?php render_mode_links($site, $sheet, $block['position']); ?>
+    <?php if (block_type($block) !== ''): ?>
+        <?php render_type_links($site, $sheet, $block); ?>
+    <?php endif; ?>
 </header>
-<div class="block-page">
+<?php $neighbors = fight_neighbors($site, $sheet, $block); ?>
+<div class="block-page"<?php if ($neighbors): ?> data-prev="<?= h($neighbors[0]) ?>" data-next="<?= h($neighbors[1]) ?>"<?php endif; ?>>
     <?php render_block($site, $block); ?>
 </div>
+<?php if ($neighbors): ?>
+<script src="assets/fight-swipe.js" defer></script>
+<?php endif; ?>
     <?php
     page_end();
 }

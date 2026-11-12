@@ -181,6 +181,51 @@ function open_blocks($site, $sheet)
     });
 }
 
+/** Physical or Magical for an elemental fight, '' for realm and job fights. */
+function block_type($block)
+{
+    return $block['variant'] === '' ? '' : explode(' ', $block['variant'], 2)[0];
+}
+
+/**
+ * Pages a swipe on a fight page leads to: [previous, next], wrapping around the
+ * sheet's open fights in order. Elemental fights stay within their attack type.
+ * Null when the fight is the only one to swipe between.
+ */
+function fight_neighbors($site, $sheet, $block)
+{
+    $type = block_type($block);
+    $positions = [];
+    foreach (open_blocks($site, $sheet) as $other) {
+        if (block_type($other) === $type) {
+            $positions[] = $other['position'];
+        }
+    }
+    $count = count($positions);
+    if ($count < 2) {
+        return null;
+    }
+    $index = array_search($block['position'], $positions, true);
+    return [
+        fight_url($sheet, $positions[($index + $count - 1) % $count]),
+        fight_url($sheet, $positions[($index + 1) % $count]),
+    ];
+}
+
+/** The same element's fight of the other attack type, if it has a page. */
+function type_counterpart($site, $sheet, $block)
+{
+    $type = block_type($block);
+    $other = $type === 'Physical' ? 'Magical' : 'Physical';
+    $variant = $other . substr($block['variant'], strlen($type));
+    foreach (open_blocks($site, $sheet) as $candidate) {
+        if ($candidate['variant'] === $variant) {
+            return $candidate;
+        }
+    }
+    return null;
+}
+
 /**
  * Blocks to list in a fight's gallery. Elemental fights are grouped by attack
  * type; realm and job fights form a single untitled group.

@@ -222,6 +222,14 @@ p {
     color: var(--text);
 }
 
+.mode-toggle .mode-unavailable {
+    padding: 5px 16px;
+    color: var(--muted);
+    font-weight: 700;
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
 .mode-toggle a.mode-hard[aria-current="page"] {
     background: var(--hard);
     color: var(--ink);
