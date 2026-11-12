@@ -195,6 +195,11 @@ p {
     font-size: 0.82rem;
 }
 
+.fight-head-inline .mode-toggle {
+    margin: 8px 0 0;
+    font-size: 0.82rem;
+}
+
 .mode-toggle a {
     padding: 5px 16px;
     color: var(--muted);
@@ -825,6 +830,11 @@ td.date {
     .fight-head-inline h1 + p {
         margin-top: 0;
         font-size: 0.8rem;
+    }
+
+    .fight-head-inline .mode-toggle {
+        align-self: center;
+        margin: 0;
     }
 
     .block-page {

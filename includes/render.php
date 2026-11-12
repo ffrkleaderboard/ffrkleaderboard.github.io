@@ -204,15 +204,30 @@ function render_block_card($site, $sheet, $block)
     <?php
 }
 
-/** Normal | Hard Mode toggle of a fight gallery: each mode is its own page. */
-function render_mode_links($sheet)
+/**
+ * Normal | Hard Mode toggle: each mode is its own page. On a fight page it links
+ * to the same fight in the other mode, or to that mode's gallery when the fight
+ * has no page there yet.
+ */
+function render_mode_links($site, $sheet, $position = null)
 {
     $normal = is_hard_mode($sheet) ? substr($sheet, 0, -3) : $sheet;
     $hard = $normal . '-HM';
+    $url = function ($target) use ($site, $sheet, $position) {
+        if ($position === null || $target === $sheet) {
+            return fight_url($target, $position);
+        }
+        foreach (open_blocks($site, $target) as $block) {
+            if ($block['position'] === $position) {
+                return fight_url($target, $position);
+            }
+        }
+        return fight_url($target);
+    };
     ?>
     <nav class="mode-toggle" aria-label="Difficulty">
-        <a href="<?= h(fight_url($normal)) ?>"<?= $sheet === $normal ? ' aria-current="page"' : '' ?>>Normal</a>
-        <a class="mode-hard" href="<?= h(fight_url($hard)) ?>"<?= $sheet === $hard ? ' aria-current="page"' : '' ?>>Hard Mode</a>
+        <a href="<?= h($url($normal)) ?>"<?= $sheet === $normal ? ' aria-current="page"' : '' ?>>Normal</a>
+        <a class="mode-hard" href="<?= h($url($hard)) ?>"<?= $sheet === $hard ? ' aria-current="page"' : '' ?>>Hard Mode</a>
     </nav>
     <?php
 }

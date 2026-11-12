@@ -59,7 +59,7 @@ function render_gallery_page($site, $sheet)
 <header class="fight-head">
     <div class="fight-title">
         <h1><?= h($sheet) ?></h1>
-        <?php render_mode_links($sheet); ?>
+        <?php render_mode_links($site, $sheet); ?>
     </div>
     <p><?= h($fight['subtitle']) ?> · <?= fight_record_count($site, $sheet) ?> records</p>
 </header>
@@ -101,6 +101,7 @@ function render_block_page($site, $sheet, $block)
     <p class="breadcrumb"><a href="<?= h(fight_url($sheet)) ?>">‹ <?= h($sheet) ?></a></p>
     <h1><?= h(block_title($block)) ?></h1>
     <p><?= block_record_count($site, $block) ?> records</p>
+    <?php render_mode_links($site, $sheet, $block['position']); ?>
 </header>
 <div class="block-page">
     <?php render_block($site, $block); ?>
