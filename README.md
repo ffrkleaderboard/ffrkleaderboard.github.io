@@ -53,8 +53,9 @@ python tools/build_data.py
   `record_changes.csv` logs each submission as new or updated, which the sheet
   doesn't keep, so it is added to rather than regenerated)
 - `assets/block-banners/`: the banner of each block, as `<sheet>-<position>.webp`
-  (`LICH-14.webp`, `RCD2-HM-7.webp`). The sheet has no pictures, so a new block
-  gets its banner by adding its file here; a block without one shows none.
+  (`LICH-14.webp`, `RCD2-HM-7.webp`). A block without a file gets the banner the
+  sheet shows above it on the next update; a file here is never replaced from the
+  sheet, so to change a banner, replace its file.
 - `assets/fight-banners/`: the home page banner of each fight, as `<sheet>.webp`
   and `<sheet>-HM.webp`
 - `assets/badges/`: badges kept in the repo, as `<badge>.webp` (`F2P.webp`,

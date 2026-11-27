@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Regenerates data/*.csv and assets/sprites/ from the public Google Sheet.
 
-The sheet is only ever read, through its public xlsx export. Block banners are not
-taken from it: each one is a file in assets/block-banners/ named <sheet>-<position>.webp
-(LICH-14.webp), added by hand. A badge with a file in assets/badges/ named after it
+The sheet is only ever read, through its public xlsx export. Block banners are
+files in assets/block-banners/ named <sheet>-<position>.webp (LICH-14.webp). A
+block without one takes the banner the sheet shows above it, so a new fight gets
+its file on its own; an existing file is never replaced from the sheet. A badge with a file in assets/badges/ named after it
 (F2P.webp) uses that file instead of the sheet's image. Character sprites,
 medals and badges are copied into assets/sprites/ so the site doesn't depend on
 their hosts; one that can't be downloaded keeps its original URL.
@@ -32,6 +33,7 @@ EXPORT_URL = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/export?format=x
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
 BANNER_DIR = ROOT / "assets" / "block-banners"
+BANNER_QUALITY = 85
 BADGE_DIR = ROOT / "assets" / "badges"
 SPRITE_DIR = ROOT / "assets" / "sprites"
 DOWNLOAD_WORKERS = 4
@@ -131,10 +133,22 @@ def block_palette(cd, variant, palettes):
     return palettes[variant.split()[1]]
 
 
-def block_banner(tab, position):
-    """File name of a block's banner in assets/block-banners/, or "" when it has none."""
+def block_banner(tab, position, images):
+    """File name of a block's banner in assets/block-banners/, or "" when it has none.
+
+    A missing file is saved from the first of `images`, the pictures the sheet
+    shows above the block.
+    """
     name = f"{tab}-{position}.webp"
-    return name if (BANNER_DIR / name).exists() else ""
+    path = BANNER_DIR / name
+    if not path.exists() and images:
+        try:
+            with Image.open(io.BytesIO(images[0]._data())) as image:
+                image.save(path, "WEBP", quality=BANNER_QUALITY)
+            print(f"  new banner {name}")
+        except Exception as error:  # A broken picture leaves the block without a banner.
+            print(f"  not saving banner {name}: {error}")
+    return name if path.exists() else ""
 
 
 def badge_override(icon):
@@ -195,12 +209,14 @@ def build_blocks(formula_book, value_book, tabs, config, palettes):
     rows = []
     for tab in tabs:
         styled, values = formula_book[tab], value_book[tab]
+        pictures = [image for image in styled._images if image.anchor._from.row == 0]
         starts = [c for c in range(1, styled.max_column + 1) if values.cell(2, c).value == "RANK"]
         for position, start in enumerate(starts):
             cd, boss, variant = block_keys(tab, position, config)
             palette = block_palette(cd, variant, palettes)
             head = fill_hex(styled.cell(2, start))
-            banner = block_banner(tab, position + 1)
+            above = [image for image in pictures if start - 1 <= image.anchor._from.col < start + 8]
+            banner = block_banner(tab, position + 1, above)
             label = clean(values.cell(1, start).value)
             if not re.search(r"[A-Za-z]", label):  # "----->" filler used by the sheet
                 label = ""
